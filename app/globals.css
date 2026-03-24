@@ -123,3 +123,46 @@
     @apply bg-background text-foreground;
   }
 }
+
+/* Floating circles animations */
+@keyframes floatFromLeft {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(45vw) translateY(-30px);
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(55vw) translateY(-50px);
+    opacity: 0;
+  }
+}
+
+@keyframes floatFromRight {
+  0% {
+    transform: translateX(0) translateY(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateX(-45vw) translateY(-30px);
+    opacity: 0.5;
+  }
+  90% {
+    opacity: 0.3;
+  }
+  100% {
+    transform: translateX(-55vw) translateY(-50px);
+    opacity: 0;
+  }
+}
