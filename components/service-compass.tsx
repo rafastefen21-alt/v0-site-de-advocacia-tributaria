@@ -119,7 +119,7 @@ export function ServiceCompass() {
             <span className="text-sm font-mono text-primary">BÚSSOLA DE SERVIÇOS</span>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-secondary mb-4 text-balance">
-            Qual é o Seu Desafio Tributário?
+            Qual seu desafio?
           </h2>
           <p className="text-lg text-muted-foreground text-pretty">
             Selecione o problema que sua empresa enfrenta e descubra a solução ideal. 

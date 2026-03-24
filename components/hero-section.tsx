@@ -65,12 +65,6 @@ export function HeroSection() {
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="text-center max-w-4xl mx-auto">
-          {/* Badge */}
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/5 border border-secondary/10 mb-8">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            <span className="text-sm font-mono text-secondary/70">ASSESSORIA TRIBUTÁRIA</span>
-          </div>
-
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-secondary leading-tight mb-6 text-balance">
             Inteligência Jurídica e Tecnologia na{" "}
@@ -134,12 +128,6 @@ export function HeroSection() {
         </div>
       </div>
 
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
-        <div className="w-6 h-10 rounded-full border-2 border-secondary/30 flex items-start justify-center p-2">
-          <div className="w-1 h-2 rounded-full bg-primary animate-pulse" />
-        </div>
-      </div>
     </section>
   )
 }
