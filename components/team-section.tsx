@@ -1,0 +1,117 @@
+"use client"
+
+import Image from "next/image"
+import { Linkedin, Mail } from "lucide-react"
+
+const team = [
+  {
+    name: "Sócia Fundadora",
+    role: "Especialista em Direito Tributário",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-17%20at%2013.17.18%20%282%29-weWuSJTrBlkhHewglyuoQih0BQxJn4.jpeg",
+    description: "Advogada tributarista com mais de 15 anos de experiência em planejamento e recuperação de créditos.",
+  },
+  {
+    name: "Sócio Fundador",
+    role: "Especialista em Contencioso Tributário",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-17%20at%2013.17.18%20%281%29-K29QEP8GURglvTg2L42YFsnDsOxA9V.jpeg",
+    description: "Advogado com vasta experiência em litígios tributários e defesas administrativas junto aos fiscos.",
+  },
+  {
+    name: "Diretora de Operações",
+    role: "Gestão e Compliance",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-17%20at%2013.17.18-lRV4OXPIVzIJwzPMyTmK32hBF1Alac.jpeg",
+    description: "Responsável pela gestão operacional e implementação de processos de compliance tributário.",
+  },
+]
+
+export function TeamSection() {
+  return (
+    <section id="equipe" className="py-24 relative overflow-hidden">
+      {/* Background */}
+      <div className="absolute inset-0 bg-secondary/[0.02]" />
+      
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Section Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-6">
+            <span className="text-sm font-mono text-primary">NOSSA EQUIPE</span>
+          </div>
+          <h2 className="text-3xl sm:text-4xl font-bold text-secondary mb-4 text-balance">
+            Especialistas em Direito Tributário
+          </h2>
+          <p className="text-lg text-muted-foreground text-pretty">
+            Uma equipe multidisciplinar de advogados, contadores e especialistas em tecnologia 
+            trabalhando juntos para maximizar seus resultados.
+          </p>
+        </div>
+
+        {/* Team Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {team.map((member, index) => (
+            <div
+              key={index}
+              className="group relative bg-card rounded-3xl overflow-hidden border border-border hover:shadow-xl transition-all duration-500"
+            >
+              {/* Image */}
+              <div className="relative h-80 overflow-hidden">
+                <Image
+                  src={member.image}
+                  alt={member.name}
+                  fill
+                  className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                />
+                {/* Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent opacity-60" />
+              </div>
+
+              {/* Content */}
+              <div className="relative p-6 -mt-16 z-10">
+                <div className="bg-card rounded-2xl p-6 shadow-lg border border-border">
+                  <h3 className="text-xl font-bold text-secondary mb-1">{member.name}</h3>
+                  <p className="text-primary font-medium text-sm mb-3">{member.role}</p>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {member.description}
+                  </p>
+                  
+                  {/* Social Links */}
+                  <div className="flex items-center gap-3 mt-4 pt-4 border-t border-border">
+                    <button className="w-10 h-10 rounded-lg bg-secondary/5 hover:bg-secondary/10 flex items-center justify-center transition-colors">
+                      <Linkedin className="h-5 w-5 text-secondary" />
+                    </button>
+                    <button className="w-10 h-10 rounded-lg bg-secondary/5 hover:bg-secondary/10 flex items-center justify-center transition-colors">
+                      <Mail className="h-5 w-5 text-secondary" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Team Photo */}
+        <div className="mt-16">
+          <div className="relative rounded-3xl overflow-hidden">
+            <Image
+              src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-17%20at%2013.17.19-CsYDBdgQv5boOyiwBrWeCfebnwVDv5.jpeg"
+              alt="Equipe SKP Assessoria Tributária"
+              width={1200}
+              height={500}
+              className="w-full h-[400px] object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-r from-secondary/80 to-transparent flex items-center">
+              <div className="p-8 lg:p-12 max-w-xl">
+                <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                  Unidos pela Excelência Tributária
+                </h3>
+                <p className="text-white/80 text-lg leading-relaxed">
+                  Nossa equipe combina expertise jurídica, conhecimento contábil e 
+                  inovação tecnológica para entregar resultados excepcionais aos nossos clientes.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
