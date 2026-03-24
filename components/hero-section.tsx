@@ -3,9 +3,100 @@
 import { ArrowRight, Shield, TrendingUp, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
+// Floating circles configuration
+const leftCircles = [
+  { size: 8, delay: 0, duration: 25, startY: 15 },
+  { size: 6, delay: 3, duration: 30, startY: 35 },
+  { size: 10, delay: 6, duration: 28, startY: 55 },
+  { size: 5, delay: 9, duration: 32, startY: 75 },
+  { size: 7, delay: 12, duration: 27, startY: 90 },
+]
+
+const rightCircles = [
+  { size: 7, delay: 2, duration: 28, startY: 10 },
+  { size: 9, delay: 5, duration: 26, startY: 30 },
+  { size: 6, delay: 8, duration: 31, startY: 50 },
+  { size: 8, delay: 11, duration: 29, startY: 70 },
+  { size: 5, delay: 14, duration: 33, startY: 85 },
+]
+
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+      {/* Floating Blue Circles - Left Side */}
+      {leftCircles.map((circle, index) => (
+        <div
+          key={`left-${index}`}
+          className="absolute rounded-full bg-secondary/20 blur-[1px]"
+          style={{
+            width: `${circle.size}px`,
+            height: `${circle.size}px`,
+            left: '-20px',
+            top: `${circle.startY}%`,
+            animation: `floatFromLeft ${circle.duration}s ease-in-out ${circle.delay}s infinite`,
+          }}
+        />
+      ))}
+
+      {/* Floating Blue Circles - Right Side */}
+      {rightCircles.map((circle, index) => (
+        <div
+          key={`right-${index}`}
+          className="absolute rounded-full bg-secondary/20 blur-[1px]"
+          style={{
+            width: `${circle.size}px`,
+            height: `${circle.size}px`,
+            right: '-20px',
+            top: `${circle.startY}%`,
+            animation: `floatFromRight ${circle.duration}s ease-in-out ${circle.delay}s infinite`,
+          }}
+        />
+      ))}
+
+      {/* CSS Keyframes */}
+      <style jsx>{`
+        @keyframes floatFromLeft {
+          0% {
+            transform: translateX(0) translateY(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: 0.6;
+          }
+          50% {
+            transform: translateX(45vw) translateY(-20px);
+            opacity: 0.4;
+          }
+          90% {
+            opacity: 0.2;
+          }
+          100% {
+            transform: translateX(55vw) translateY(-40px);
+            opacity: 0;
+          }
+        }
+        @keyframes floatFromRight {
+          0% {
+            transform: translateX(0) translateY(0);
+            opacity: 0;
+          }
+          10% {
+            opacity: 0.6;
+          }
+          50% {
+            transform: translateX(-45vw) translateY(-20px);
+            opacity: 0.4;
+          }
+          90% {
+            opacity: 0.2;
+          }
+          100% {
+            transform: translateX(-55vw) translateY(-40px);
+            opacity: 0;
+          }
+        }
+      `}</style>
+
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-background">
         <div className="absolute inset-0 opacity-[0.02]" style={{
