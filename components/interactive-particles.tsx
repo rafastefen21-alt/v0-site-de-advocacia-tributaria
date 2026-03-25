@@ -59,17 +59,17 @@ export function InteractiveParticles() {
           y,
           originX: x,
           originY: y,
-          size: Math.random() * 6 + 4,
+          size: Math.random() * 8 + 6,
           color: colors[colorIndex],
           rotation: Math.random() * Math.PI * 2,
           waveOffset: Math.random() * Math.PI * 2,
           waveSpeed: Math.random() * 0.02 + 0.01,
-          opacity: Math.random() * 0.4 + 0.3,
+          opacity: Math.random() * 0.12 + 0.08,
         })
       }
     }
 
-    // Draw the SKP "a" symbol shape
+    // Draw the exact SKP "a" symbol - two interlocking ellipses
     const drawSKPSymbol = (particle: Particle) => {
       if (!ctx) return
       
@@ -79,22 +79,21 @@ export function InteractiveParticles() {
       ctx.globalAlpha = particle.opacity
       
       const s = particle.size
+      const lineWidth = s * 0.12
       
       ctx.strokeStyle = particle.color
-      ctx.lineWidth = s * 0.18
+      ctx.lineWidth = lineWidth
       ctx.lineCap = "round"
       ctx.lineJoin = "round"
       
-      // Draw the SKP symbol - stylized "a" with two interlocking curves
+      // Outer ellipse (larger, tilted slightly)
       ctx.beginPath()
-      
-      // Outer oval (the main "a" shape)
-      ctx.ellipse(0, 0, s * 0.5, s * 0.7, 0, 0, Math.PI * 2)
+      ctx.ellipse(-s * 0.08, 0, s * 0.45, s * 0.6, -0.2, 0, Math.PI * 2)
       ctx.stroke()
       
-      // Inner curved element (the swoosh inside)
+      // Inner ellipse (smaller, positioned inside, tilted opposite)
       ctx.beginPath()
-      ctx.ellipse(s * 0.1, s * 0.15, s * 0.25, s * 0.35, Math.PI * 0.2, Math.PI * 0.5, Math.PI * 2)
+      ctx.ellipse(s * 0.12, s * 0.05, s * 0.28, s * 0.38, 0.3, 0, Math.PI * 2)
       ctx.stroke()
       
       ctx.restore()
@@ -200,7 +199,6 @@ export function InteractiveParticles() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-auto z-0"
-      style={{ opacity: 0.6 }}
     />
   )
 }
