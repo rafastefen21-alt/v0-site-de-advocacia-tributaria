@@ -7,9 +7,12 @@ interface Particle {
   y: number
   originX: number
   originY: number
-  size: number
+  length: number
+  thickness: number
   color: string
   angle: number
+  waveOffset: number
+  waveSpeed: number
 }
 
 export function InteractiveParticles() {
@@ -17,6 +20,7 @@ export function InteractiveParticles() {
   const particlesRef = useRef<Particle[]>([])
   const mouseRef = useRef({ x: -1000, y: -1000 })
   const animationRef = useRef<number>(0)
+  const timeRef = useRef<number>(0)
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -33,43 +37,57 @@ export function InteractiveParticles() {
 
     const initParticles = () => {
       particlesRef.current = []
-      const numberOfParticles = Math.floor((canvas.width * canvas.height) / 8000)
+      const numberOfParticles = Math.floor((canvas.width * canvas.height) / 4000)
       
       for (let i = 0; i < numberOfParticles; i++) {
         const x = Math.random() * canvas.width
         const y = Math.random() * canvas.height
-        // Use brand colors: secondary (navy blue) and primary (orange)
+        // Colors similar to Google Antigravity - blues and purples with some variation
         const colors = [
-          "#1a2744", // secondary - navy blue
-          "#1a2744",
-          "#1a2744",
-          "#F26522", // primary - orange (less frequent)
-          "#64748B", // muted
+          "#1a2744", // navy blue (brand secondary)
+          "#2563EB", // bright blue
+          "#3B82F6", // blue
+          "#6366F1", // indigo
+          "#8B5CF6", // purple
+          "#7C3AED", // violet
+          "#F26522", // orange (brand primary - sparse)
         ]
+        const colorIndex = Math.random() < 0.08 ? 6 : Math.floor(Math.random() * 6)
+        
         particlesRef.current.push({
           x,
           y,
           originX: x,
           originY: y,
-          size: Math.random() * 2 + 1,
-          color: colors[Math.floor(Math.random() * colors.length)],
+          length: Math.random() * 6 + 3,
+          thickness: Math.random() * 1.5 + 0.5,
+          color: colors[colorIndex],
           angle: Math.random() * Math.PI * 2,
+          waveOffset: Math.random() * Math.PI * 2,
+          waveSpeed: Math.random() * 0.02 + 0.01,
         })
       }
     }
 
-    const drawParticle = (particle: Particle) => {
+    const drawParticle = (particle: Particle, time: number) => {
       if (!ctx) return
+      
+      // Calculate wave motion
+      const waveAngle = Math.sin(time * particle.waveSpeed + particle.waveOffset) * 0.5
+      const currentAngle = particle.angle + waveAngle
       
       ctx.save()
       ctx.translate(particle.x, particle.y)
-      ctx.rotate(particle.angle)
+      ctx.rotate(currentAngle)
       
+      // Draw a small dash/line
       ctx.beginPath()
-      ctx.fillStyle = particle.color
-      // Draw a small dash/line instead of circle for the antigravity effect
-      ctx.fillRect(-particle.size * 2, -particle.size / 2, particle.size * 4, particle.size)
-      ctx.fill()
+      ctx.strokeStyle = particle.color
+      ctx.lineWidth = particle.thickness
+      ctx.lineCap = "round"
+      ctx.moveTo(-particle.length / 2, 0)
+      ctx.lineTo(particle.length / 2, 0)
+      ctx.stroke()
       
       ctx.restore()
     }
@@ -78,38 +96,41 @@ export function InteractiveParticles() {
       if (!ctx || !canvas) return
 
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      
+      timeRef.current += 1
 
       const mouseX = mouseRef.current.x
       const mouseY = mouseRef.current.y
-      const radius = 150 // Influence radius of mouse
+      const radius = 120
 
       particlesRef.current.forEach((particle) => {
         const dx = mouseX - particle.x
         const dy = mouseY - particle.y
         const distance = Math.sqrt(dx * dx + dy * dy)
 
-        if (distance < radius) {
+        // Wave motion - particles gently oscillate even without mouse
+        const waveX = Math.sin(timeRef.current * 0.01 + particle.waveOffset) * 2
+        const waveY = Math.cos(timeRef.current * 0.01 + particle.waveOffset * 1.5) * 2
+
+        if (distance < radius && mouseX > 0 && mouseY > 0) {
           // Push particles away from mouse
           const force = (radius - distance) / radius
           const angle = Math.atan2(dy, dx)
-          const pushX = Math.cos(angle) * force * 50
-          const pushY = Math.sin(angle) * force * 50
+          const pushX = Math.cos(angle) * force * 40
+          const pushY = Math.sin(angle) * force * 40
           
-          particle.x -= pushX * 0.1
-          particle.y -= pushY * 0.1
+          particle.x -= pushX * 0.15
+          particle.y -= pushY * 0.15
           
-          // Rotate particle based on mouse movement
-          particle.angle = angle + Math.PI / 2
+          // Rotate particle towards mouse direction
+          particle.angle = angle + Math.PI / 4
         } else {
-          // Slowly return to original position
-          particle.x += (particle.originX - particle.x) * 0.02
-          particle.y += (particle.originY - particle.y) * 0.02
-          
-          // Slowly return to original random angle
-          particle.angle += 0.001
+          // Return to original position with wave motion
+          particle.x += (particle.originX + waveX - particle.x) * 0.03
+          particle.y += (particle.originY + waveY - particle.y) * 0.03
         }
 
-        drawParticle(particle)
+        drawParticle(particle, timeRef.current)
       })
 
       animationRef.current = requestAnimationFrame(animate)
@@ -137,10 +158,15 @@ export function InteractiveParticles() {
       }
     }
 
+    const handleTouchEnd = () => {
+      mouseRef.current = { x: -1000, y: -1000 }
+    }
+
     window.addEventListener("resize", resizeCanvas)
     canvas.addEventListener("mousemove", handleMouseMove)
     canvas.addEventListener("mouseleave", handleMouseLeave)
     canvas.addEventListener("touchmove", handleTouchMove)
+    canvas.addEventListener("touchend", handleTouchEnd)
 
     resizeCanvas()
     animate()
@@ -150,6 +176,7 @@ export function InteractiveParticles() {
       canvas.removeEventListener("mousemove", handleMouseMove)
       canvas.removeEventListener("mouseleave", handleMouseLeave)
       canvas.removeEventListener("touchmove", handleTouchMove)
+      canvas.removeEventListener("touchend", handleTouchEnd)
       cancelAnimationFrame(animationRef.current)
     }
   }, [])
@@ -158,7 +185,7 @@ export function InteractiveParticles() {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 pointer-events-auto z-0"
-      style={{ opacity: 0.6 }}
+      style={{ opacity: 0.7 }}
     />
   )
 }
