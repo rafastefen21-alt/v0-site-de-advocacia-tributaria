@@ -2,16 +2,27 @@
 
 import { ArrowRight, Shield, TrendingUp, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
-import { InteractiveParticles } from "@/components/interactive-particles"
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
-      {/* Interactive Particle Effect */}
-      <InteractiveParticles />
-
-      {/* Background */}
-      <div className="absolute inset-0 bg-background -z-10" />
+      {/* Video Background */}
+      <div className="absolute inset-0 -z-10">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="absolute inset-0 w-full h-full object-cover"
+        >
+          <source
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%ADdeo_de_Tour_de_Escrit%C3%B3rio_Jur%C3%ADdico-kC4ayRXvHMOJgKCcLNRR4H0KXaVfU6.mp4"
+            type="video/mp4"
+          />
+        </video>
+        {/* Overlay for better text readability */}
+        <div className="absolute inset-0 bg-background/85" />
+      </div>
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10">
         <div className="text-center max-w-4xl mx-auto">
