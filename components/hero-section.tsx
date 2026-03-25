@@ -1,25 +1,35 @@
 "use client"
 
+import { useEffect, useRef } from "react"
 import { ArrowRight, Shield, TrendingUp, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
+  const videoRef = useRef<HTMLVideoElement>(null)
+
+  useEffect(() => {
+    const video = videoRef.current
+    if (video) {
+      video.play().catch(() => {
+        // Autoplay was prevented, video will show first frame
+      })
+    }
+  }, [])
+
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
       {/* Video Background */}
       <div className="absolute inset-0 -z-10">
         <video
+          ref={videoRef}
           autoPlay
           muted
           loop
           playsInline
+          preload="auto"
           className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%ADdeo_de_Tour_de_Escrit%C3%B3rio_Jur%C3%ADdico-kC4ayRXvHMOJgKCcLNRR4H0KXaVfU6.mp4"
-            type="video/mp4"
-          />
-        </video>
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%ADdeo_de_Tour_de_Escrit%C3%B3rio_Jur%C3%ADdico-kC4ayRXvHMOJgKCcLNRR4H0KXaVfU6.mp4"
+        />
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-background/85" />
       </div>
