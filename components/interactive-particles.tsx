@@ -59,12 +59,12 @@ export function InteractiveParticles() {
           y,
           originX: x,
           originY: y,
-          length: Math.random() * 6 + 3,
-          thickness: Math.random() * 1.5 + 0.5,
+          length: Math.random() * 3 + 2,
+          thickness: Math.random() * 1 + 0.5,
           color: colors[colorIndex],
           angle: Math.random() * Math.PI * 2,
           waveOffset: Math.random() * Math.PI * 2,
-          waveSpeed: Math.random() * 0.02 + 0.01,
+          waveSpeed: Math.random() * 0.03 + 0.02,
         })
       }
     }
@@ -108,26 +108,33 @@ export function InteractiveParticles() {
         const dy = mouseY - particle.y
         const distance = Math.sqrt(dx * dx + dy * dy)
 
-        // Wave motion - particles gently oscillate even without mouse
-        const waveX = Math.sin(timeRef.current * 0.01 + particle.waveOffset) * 2
-        const waveY = Math.cos(timeRef.current * 0.01 + particle.waveOffset * 1.5) * 2
+        // Continuous wave motion - always moving like flowing water
+        const time = timeRef.current * 0.015
+        const waveAmplitude = 8
+        const waveX = Math.sin(time + particle.waveOffset) * waveAmplitude
+        const waveY = Math.cos(time * 0.8 + particle.waveOffset * 1.3) * waveAmplitude
+        
+        // Update angle based on wave for flowing effect
+        particle.angle += Math.sin(time + particle.waveOffset) * 0.02
 
         if (distance < radius && mouseX > 0 && mouseY > 0) {
           // Push particles away from mouse
           const force = (radius - distance) / radius
           const angle = Math.atan2(dy, dx)
-          const pushX = Math.cos(angle) * force * 40
-          const pushY = Math.sin(angle) * force * 40
+          const pushX = Math.cos(angle) * force * 50
+          const pushY = Math.sin(angle) * force * 50
           
-          particle.x -= pushX * 0.15
-          particle.y -= pushY * 0.15
+          particle.x -= pushX * 0.2
+          particle.y -= pushY * 0.2
           
           // Rotate particle towards mouse direction
           particle.angle = angle + Math.PI / 4
         } else {
-          // Return to original position with wave motion
-          particle.x += (particle.originX + waveX - particle.x) * 0.03
-          particle.y += (particle.originY + waveY - particle.y) * 0.03
+          // Smoothly move with wave motion
+          const targetX = particle.originX + waveX
+          const targetY = particle.originY + waveY
+          particle.x += (targetX - particle.x) * 0.05
+          particle.y += (targetY - particle.y) * 0.05
         }
 
         drawParticle(particle, timeRef.current)
