@@ -54,14 +54,14 @@ export function AuditPipeline() {
   const [activeStep, setActiveStep] = useState(1)
 
   return (
-    <section id="processo" className="py-24 relative overflow-hidden bg-card">
+    <section id="processo" className="py-12 relative overflow-hidden bg-card">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <h2 className="text-3xl sm:text-4xl font-bold text-secondary mb-4 text-balance">
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-2 text-balance">
             Nosso Processo de Análise
           </h2>
-          <p className="text-lg text-muted-foreground text-pretty">
+          <p className="text-base text-muted-foreground text-pretty">
             Um pipeline inteligente que combina tecnologia de ponta com expertise jurídica 
             para maximizar a recuperação de créditos da sua empresa.
           </p>
@@ -70,10 +70,10 @@ export function AuditPipeline() {
         {/* Timeline Desktop */}
         <div className="hidden lg:block">
           {/* Progress Line */}
-          <div className="relative mb-12">
-            <div className="absolute top-6 left-0 right-0 h-1 bg-border rounded-full" />
+          <div className="relative mb-6">
+            <div className="absolute top-5 left-0 right-0 h-0.5 bg-border rounded-full" />
             <div 
-              className="absolute top-6 left-0 h-1 bg-primary rounded-full transition-all duration-500"
+              className="absolute top-5 left-0 h-0.5 bg-primary rounded-full transition-all duration-500"
               style={{ width: `${((activeStep - 1) / (steps.length - 1)) * 100}%` }}
             />
             
@@ -92,7 +92,7 @@ export function AuditPipeline() {
                   >
                     <div
                       className={`
-                        w-12 h-12 rounded-full flex items-center justify-center transition-all duration-300 mb-4
+                        w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300 mb-2
                         ${isActive 
                           ? "bg-primary text-primary-foreground scale-110 shadow-lg shadow-primary/30" 
                           : isCompleted 
@@ -101,11 +101,11 @@ export function AuditPipeline() {
                         }
                       `}
                     >
-                      <Icon className="h-5 w-5" />
+                      <Icon className="h-4 w-4" />
                     </div>
                     <span 
                       className={`
-                        text-sm font-medium transition-colors
+                        text-xs font-medium transition-colors
                         ${isActive ? "text-primary" : "text-muted-foreground group-hover:text-secondary"}
                       `}
                     >
@@ -118,54 +118,54 @@ export function AuditPipeline() {
           </div>
 
           {/* Active Step Content */}
-          <div className="bg-background rounded-3xl border border-border p-8 lg:p-12">
+          <div className="bg-background rounded-2xl border border-border p-6">
             {steps.map((step) => {
               if (step.id !== activeStep) return null
               const Icon = step.icon
 
               return (
-                <div key={step.id} className="grid lg:grid-cols-2 gap-12 items-center">
+                <div key={step.id} className="grid lg:grid-cols-2 gap-6 items-center">
                   <div>
-                    <div className="flex items-center gap-4 mb-6">
-                      <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center">
-                        <Icon className="h-8 w-8 text-primary" />
+                    <div className="flex items-center gap-3 mb-4">
+                      <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center">
+                        <Icon className="h-6 w-6 text-primary" />
                       </div>
                       <div>
-                        <span className="text-sm font-mono text-muted-foreground">ETAPA {step.id}</span>
-                        <h3 className="text-2xl font-bold text-secondary">{step.title}</h3>
+                        <span className="text-xs font-mono text-muted-foreground">ETAPA {step.id}</span>
+                        <h3 className="text-xl font-bold text-secondary">{step.title}</h3>
                       </div>
                     </div>
-                    <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
+                    <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                       {step.description}
                     </p>
-                    <ul className="space-y-4">
+                    <ul className="space-y-2">
                       {step.details.map((detail, index) => (
-                        <li key={index} className="flex items-center gap-3">
-                          <div className="w-2 h-2 rounded-full bg-primary" />
-                          <span className="text-secondary">{detail}</span>
+                        <li key={index} className="flex items-center gap-2">
+                          <div className="w-1.5 h-1.5 rounded-full bg-primary" />
+                          <span className="text-sm text-secondary">{detail}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div className="relative">
-                    <div className="aspect-square rounded-3xl bg-secondary/5 flex items-center justify-center">
-                      <Icon className="h-32 w-32 text-secondary/10" />
+                    <div className="aspect-video rounded-2xl bg-secondary/5 flex items-center justify-center">
+                      <Icon className="h-20 w-20 text-secondary/10" />
                     </div>
                     {/* Navigation Arrows */}
-                    <div className="absolute bottom-4 right-4 flex gap-2">
+                    <div className="absolute bottom-2 right-2 flex gap-2">
                       <button
                         onClick={() => setActiveStep(Math.max(1, activeStep - 1))}
                         disabled={activeStep === 1}
-                        className="w-12 h-12 rounded-full bg-card border border-border flex items-center justify-center disabled:opacity-50 hover:bg-muted transition-colors"
+                        className="w-10 h-10 rounded-full bg-card border border-border flex items-center justify-center disabled:opacity-50 hover:bg-muted transition-colors"
                       >
-                        <ArrowRight className="h-5 w-5 rotate-180 text-secondary" />
+                        <ArrowRight className="h-4 w-4 rotate-180 text-secondary" />
                       </button>
                       <button
                         onClick={() => setActiveStep(Math.min(steps.length, activeStep + 1))}
                         disabled={activeStep === steps.length}
-                        className="w-12 h-12 rounded-full bg-primary text-primary-foreground flex items-center justify-center disabled:opacity-50 hover:bg-primary/90 transition-colors"
+                        className="w-10 h-10 rounded-full bg-primary text-primary-foreground flex items-center justify-center disabled:opacity-50 hover:bg-primary/90 transition-colors"
                       >
-                        <ArrowRight className="h-5 w-5" />
+                        <ArrowRight className="h-4 w-4" />
                       </button>
                     </div>
                   </div>

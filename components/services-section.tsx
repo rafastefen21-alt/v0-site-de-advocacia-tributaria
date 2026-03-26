@@ -86,13 +86,25 @@ export function ServicesSection() {
                 key={service.id}
                 className="relative group"
               >
-                {/* Accent Lines */}
-                {service.hasAccent && service.accentPosition === "left" && (
-                  <div className="absolute -left-1 top-4 bottom-4 w-1 bg-gradient-to-b from-primary via-primary to-transparent rounded-full" />
-                )}
-                {service.hasAccent && service.accentPosition === "right" && (
-                  <div className="absolute -right-1 top-4 bottom-4 w-1 bg-gradient-to-b from-primary via-primary to-transparent rounded-full" />
-                )}
+                {/* Animated Orbiting Accent Lines */}
+                <div 
+                  className="absolute w-1 h-[30%] bg-gradient-to-b from-primary via-primary to-transparent rounded-full z-10"
+                  style={{
+                    right: '-4px',
+                    top: '15%',
+                    animation: 'moveRight 3s ease-in-out infinite',
+                    animationDelay: `${service.id * 0.3}s`
+                  }}
+                />
+                <div 
+                  className="absolute w-1 h-[30%] bg-gradient-to-t from-primary via-primary to-transparent rounded-full z-10"
+                  style={{
+                    left: '-4px',
+                    top: '55%',
+                    animation: 'moveLeft 3s ease-in-out infinite',
+                    animationDelay: `${service.id * 0.3}s`
+                  }}
+                />
 
                 <div
                   className={`
