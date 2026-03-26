@@ -77,7 +77,7 @@ export function ServicesSection() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
           {services.map((service) => {
             const isExpanded = expandedService === service.id
 
@@ -88,7 +88,7 @@ export function ServicesSection() {
               >
                 {/* Animated Orbiting Accent Lines */}
                 <div 
-                  className="absolute w-1 h-[30%] bg-gradient-to-b from-primary via-primary to-transparent rounded-full z-10"
+                  className="absolute w-1 h-[35%] bg-gradient-to-b from-primary via-primary to-transparent rounded-full z-10"
                   style={{
                     right: '-4px',
                     top: '15%',
@@ -97,10 +97,10 @@ export function ServicesSection() {
                   }}
                 />
                 <div 
-                  className="absolute w-1 h-[30%] bg-gradient-to-t from-primary via-primary to-transparent rounded-full z-10"
+                  className="absolute w-1 h-[35%] bg-gradient-to-t from-primary via-primary to-transparent rounded-full z-10"
                   style={{
                     left: '-4px',
-                    top: '55%',
+                    top: '50%',
                     animation: 'moveLeft 3s ease-in-out infinite',
                     animationDelay: `${service.id * 0.3}s`
                   }}
@@ -108,27 +108,27 @@ export function ServicesSection() {
 
                 <div
                   className={`
-                    relative h-full p-5 rounded-2xl bg-secondary text-secondary-foreground 
-                    transition-all duration-300 cursor-pointer overflow-hidden
+                    relative h-full min-h-[180px] p-6 rounded-2xl bg-secondary text-secondary-foreground 
+                    transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between
                     ${isExpanded ? "shadow-2xl scale-[1.02]" : "hover:shadow-lg"}
                   `}
                   onClick={() => setExpandedService(isExpanded ? null : service.id)}
                 >
                   {/* Service Title */}
-                  <h3 className="text-base font-bold mb-4 pr-6 leading-tight">
+                  <h3 className="text-lg font-bold mb-6 leading-tight text-center">
                     {service.title}
                   </h3>
 
                   {/* Expanded Content */}
                   {isExpanded && (
-                    <p className="text-sm text-secondary-foreground/80 mb-4 animate-in fade-in duration-300">
+                    <p className="text-sm text-secondary-foreground/80 mb-4 animate-in fade-in duration-300 text-center">
                       {service.description}
                     </p>
                   )}
 
                   {/* CTA Button */}
                   <button 
-                    className="flex items-center gap-2 text-sm font-medium text-secondary-foreground/90 hover:text-white transition-colors"
+                    className="flex items-center gap-2 text-sm font-medium text-secondary-foreground/90 hover:text-white transition-colors justify-center"
                     onClick={(e) => {
                       e.stopPropagation()
                       // Handle CTA click
