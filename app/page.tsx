@@ -7,10 +7,12 @@ import { AuditPipeline } from "@/components/audit-pipeline"
 import { TeamSection } from "@/components/team-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import { ScrollSymbol } from "@/components/scroll-symbol"
 
 export default function Home() {
   return (
     <main className="min-h-screen bg-background">
+      <ScrollSymbol />
       <Header />
       <HeroSection />
       <ServiceCompass />
