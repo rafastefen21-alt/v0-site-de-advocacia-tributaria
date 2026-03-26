@@ -2,6 +2,7 @@ import { Header } from "@/components/header"
 import { HeroSection } from "@/components/hero-section"
 import { TaxCalculator } from "@/components/tax-calculator"
 import { ServiceCompass } from "@/components/service-compass"
+import { ServicesSection } from "@/components/services-section"
 import { AuditPipeline } from "@/components/audit-pipeline"
 import { TeamSection } from "@/components/team-section"
 import { ContactSection } from "@/components/contact-section"
@@ -12,8 +13,9 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      <TaxCalculator />
       <ServiceCompass />
+      <ServicesSection />
+      <TaxCalculator />
       <AuditPipeline />
       <TeamSection />
       <ContactSection />

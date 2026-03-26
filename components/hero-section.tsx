@@ -18,9 +18,8 @@ export function HeroSection() {
         try {
           await video.load()
           await video.play()
-          console.log("[v0] Video playing successfully")
-        } catch (err) {
-          console.log("[v0] Video autoplay failed:", err)
+        } catch {
+          // Autoplay blocked by browser
         }
       }
       
@@ -29,29 +28,23 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-secondary">
       {/* Video Background */}
-      <div className="absolute inset-0 -z-10">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="metadata"
-          className="absolute inset-0 w-full h-full object-cover"
-        >
-          <source 
-            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%ADdeo_de_Tour_de_Escrit%C3%B3rio_Jur%C3%ADdico-kC4ayRXvHMOJgKCcLNRR4H0KXaVfU6.mp4" 
-            type="video/mp4" 
-          />
-          Seu navegador não suporta vídeos.
-        </video>
-        {/* Overlay for better text readability */}
-        <div className="absolute inset-0 bg-background/85" />
-      </div>
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute top-0 left-0 w-full h-full object-cover z-0"
+        style={{ minWidth: '100%', minHeight: '100%' }}
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%ADdeo_de_Tour_de_Escrit%C3%B3rio_Jur%C3%ADdico-Z3rSFivMnjL15hRI7URdh2kqXkhU3n.mp4"
+      />
+      {/* Overlay for better text readability */}
+      <div className="absolute inset-0 bg-white/80 z-[1]" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-10">
+      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-[2]">
         <div className="text-center max-w-4xl mx-auto">
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-secondary leading-tight mb-6 text-balance">
