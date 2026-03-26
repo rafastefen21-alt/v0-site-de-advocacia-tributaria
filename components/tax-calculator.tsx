@@ -56,8 +56,15 @@ export function TaxCalculator() {
 
   return (
     <section id="calculadora" className="py-24 relative overflow-hidden">
-      {/* Background */}
-      <div className="absolute inset-0 bg-secondary/[0.02]" />
+      {/* Background Image */}
+      <div className="absolute inset-0">
+        <img
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_4d7yc34d7yc34d7y-mEJPdxLlZcDspehRpHVuETGYTy4dD9.png"
+          alt=""
+          className="w-full h-full object-cover"
+        />
+        <div className="absolute inset-0 bg-background/60" />
+      </div>
       
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}

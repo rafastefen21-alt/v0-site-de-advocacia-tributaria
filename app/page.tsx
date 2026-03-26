@@ -12,8 +12,8 @@ export default function Home() {
     <main className="min-h-screen bg-background">
       <Header />
       <HeroSection />
-      <TaxCalculator />
       <ServiceCompass />
+      <TaxCalculator />
       <AuditPipeline />
       <TeamSection />
       <ContactSection />
