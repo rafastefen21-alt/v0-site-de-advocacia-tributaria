@@ -10,9 +10,21 @@ export function HeroSection() {
   useEffect(() => {
     const video = videoRef.current
     if (video) {
-      video.play().catch(() => {
-        // Autoplay was prevented, video will show first frame
-      })
+      video.muted = true
+      video.setAttribute('playsinline', 'true')
+      video.setAttribute('webkit-playsinline', 'true')
+      
+      const playVideo = async () => {
+        try {
+          await video.load()
+          await video.play()
+          console.log("[v0] Video playing successfully")
+        } catch (err) {
+          console.log("[v0] Video autoplay failed:", err)
+        }
+      }
+      
+      playVideo()
     }
   }, [])
 
@@ -26,10 +38,15 @@ export function HeroSection() {
           muted
           loop
           playsInline
-          preload="auto"
+          preload="metadata"
           className="absolute inset-0 w-full h-full object-cover"
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%ADdeo_de_Tour_de_Escrit%C3%B3rio_Jur%C3%ADdico-kC4ayRXvHMOJgKCcLNRR4H0KXaVfU6.mp4"
-        />
+        >
+          <source 
+            src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%ADdeo_de_Tour_de_Escrit%C3%B3rio_Jur%C3%ADdico-kC4ayRXvHMOJgKCcLNRR4H0KXaVfU6.mp4" 
+            type="video/mp4" 
+          />
+          Seu navegador não suporta vídeos.
+        </video>
         {/* Overlay for better text readability */}
         <div className="absolute inset-0 bg-background/85" />
       </div>
