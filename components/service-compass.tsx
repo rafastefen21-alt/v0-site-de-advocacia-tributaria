@@ -120,23 +120,23 @@ export function ServiceCompass() {
   }
 
   return (
-    <section id="servicos" className="py-24 relative overflow-hidden bg-background">
+    <section id="servicos" className="py-16 relative overflow-hidden bg-background">
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-12">
-          <h2 className="text-3xl sm:text-4xl font-bold text-secondary mb-4 text-balance">
+        <div className="text-center max-w-3xl mx-auto mb-8">
+          <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-3 text-balance">
             Qual seu desafio?
           </h2>
-          <p className="text-lg text-muted-foreground text-pretty">
+          <p className="text-base text-muted-foreground text-pretty">
             Selecione o problema que sua empresa enfrenta e descubra a solução ideal.
           </p>
         </div>
 
         {/* Desktop Layout - Compass Left, Solution Right */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-12 items-center">
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Side - Compass */}
           <div className="flex justify-center">
-            <div className="relative w-[450px] h-[450px]">
+            <div className="relative w-[380px] h-[380px]">
               {/* Outer Circle */}
               <div className="absolute inset-0 rounded-full border-2 border-dashed border-secondary/10" />
               
@@ -154,10 +154,10 @@ export function ServiceCompass() {
 
               {/* Compass Center */}
               <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                <div className="w-28 h-28 rounded-full bg-card border-4 border-secondary/20 shadow-xl flex items-center justify-center">
-                  <div className="w-20 h-20 rounded-full bg-gradient-to-br from-secondary to-secondary/80 flex items-center justify-center relative overflow-hidden">
+                <div className="w-20 h-20 rounded-full bg-card border-4 border-secondary/20 shadow-xl flex items-center justify-center">
+                  <div className="w-14 h-14 rounded-full bg-gradient-to-br from-secondary to-secondary/80 flex items-center justify-center relative overflow-hidden">
                     <div 
-                      className="absolute w-1 h-14 transition-transform duration-500 ease-out"
+                      className="absolute w-1 h-10 transition-transform duration-500 ease-out"
                       style={{
                         transform: selectedProblem 
                           ? `rotate(${problems.find(p => p.id === selectedProblem)?.angle || 0}deg)` 
@@ -176,7 +176,7 @@ export function ServiceCompass() {
               {problems.map((item) => {
                 const Icon = item.icon
                 const isSelected = selectedProblem === item.id
-                const position = getPosition(item.angle, 175)
+                const position = getPosition(item.angle, 145)
 
                 return (
                   <button
@@ -191,7 +191,7 @@ export function ServiceCompass() {
                   >
                     <div
                       className={`
-                        relative px-4 py-3 rounded-xl border transition-all duration-300 min-w-[130px]
+                        relative px-3 py-2 rounded-lg border transition-all duration-300 min-w-[110px]
                         ${isSelected 
                           ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20 scale-105" 
                           : "bg-card border-border hover:border-primary/50 hover:shadow-md"
@@ -201,14 +201,14 @@ export function ServiceCompass() {
                       <div className="flex items-center gap-2">
                         <div 
                           className={`
-                            w-8 h-8 rounded-lg flex items-center justify-center transition-colors flex-shrink-0
+                            w-6 h-6 rounded flex items-center justify-center transition-colors flex-shrink-0
                             ${isSelected ? "bg-white/20" : "bg-primary/10"}
                           `}
                         >
-                          <Icon className={`h-4 w-4 ${isSelected ? "text-white" : "text-primary"}`} />
+                          <Icon className={`h-3 w-3 ${isSelected ? "text-white" : "text-primary"}`} />
                         </div>
                         <span 
-                          className={`text-xs font-semibold text-left ${isSelected ? "text-white" : "text-secondary"}`}
+                          className={`text-[10px] font-semibold text-left leading-tight ${isSelected ? "text-white" : "text-secondary"}`}
                         >
                           {item.problem}
                         </span>
@@ -223,40 +223,39 @@ export function ServiceCompass() {
           {/* Right Side - Solution */}
           <div className="flex items-center">
             {activeSolution && activeItem && (
-              <div className="w-full p-8 rounded-3xl bg-card border border-border shadow-xl">
-                <div className="flex items-center gap-3 mb-6">
-                  <div className="w-14 h-14 rounded-2xl bg-primary/10 flex items-center justify-center">
-                    <activeItem.icon className="h-7 w-7 text-primary" />
+              <div className="w-full p-6 rounded-2xl bg-card border border-border shadow-lg">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center">
+                    <activeItem.icon className="h-5 w-5 text-primary" />
                   </div>
                   <div>
-                    <span className="text-xs font-mono text-primary uppercase tracking-wider">
+                    <span className="text-[10px] font-mono text-primary uppercase tracking-wider">
                       Solucao Recomendada
                     </span>
-                    <h3 className="text-2xl font-bold text-secondary">
+                    <h3 className="text-lg font-bold text-secondary">
                       {activeSolution.title}
                     </h3>
                   </div>
                 </div>
                 
-                <p className="text-muted-foreground mb-6 leading-relaxed">
+                <p className="text-sm text-muted-foreground mb-4 leading-relaxed">
                   {activeSolution.description}
                 </p>
                 
-                <div className="space-y-3 mb-8">
+                <div className="space-y-2 mb-4">
                   {activeSolution.benefits.map((benefit, index) => (
-                    <div key={index} className="flex items-start gap-3 p-3 rounded-xl bg-primary/5">
-                      <CheckCircle2 className="h-5 w-5 text-primary flex-shrink-0 mt-0.5" />
-                      <span className="text-sm text-secondary font-medium">{benefit}</span>
+                    <div key={index} className="flex items-start gap-2 p-2 rounded-lg bg-primary/5">
+                      <CheckCircle2 className="h-4 w-4 text-primary flex-shrink-0 mt-0.5" />
+                      <span className="text-xs text-secondary font-medium">{benefit}</span>
                     </div>
                   ))}
                 </div>
                 
                 <Button 
-                  size="lg" 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6"
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
                 >
                   Solicitar Consultoria
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                  <ArrowRight className="ml-2 h-4 w-4" />
                 </Button>
               </div>
             )}
