@@ -44,16 +44,16 @@ export function HeroSection() {
       {/* Overlay for better text readability */}
       <div className="absolute inset-0 bg-white/80 z-[1]" />
 
-      <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 z-[2]">
-        <div className="text-center max-w-4xl mx-auto">
+      <div className="relative w-full max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6 py-16 z-[2]">
+        <div className="text-center max-w-5xl mx-auto">
           {/* Main Title */}
           <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-secondary leading-tight mb-6 text-balance">
-            Inteligência Jurídica e Tecnologia na{" "}
-            <span className="text-primary">Recuperação de Créditos</span>
+            Menos tributo, mais resultado.{" "}
+            <span className="text-primary">Assessoria tributária que cresce com o seu negócio.</span>
           </h1>
 
           {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed text-pretty">
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed text-pretty">
             Somos um escritório completo de assessoria tributária. Transformamos impostos pagos 
             indevidamente em caixa para sua empresa com segurança jurídica e tecnologia de ponta.
           </p>

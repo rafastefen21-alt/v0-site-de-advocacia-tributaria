@@ -124,6 +124,67 @@
   }
 }
 
+/* Orbiting accent animation for service cards */
+@keyframes orbitClockwise {
+  0% {
+    top: 10%;
+    right: -4px;
+    height: 30%;
+  }
+  25% {
+    top: auto;
+    bottom: -4px;
+    right: 10%;
+    height: 4px;
+    width: 30%;
+  }
+  50% {
+    top: 10%;
+    left: -4px;
+    right: auto;
+    bottom: auto;
+    height: 30%;
+    width: 4px;
+  }
+  75% {
+    top: -4px;
+    left: 10%;
+    bottom: auto;
+    right: auto;
+    height: 4px;
+    width: 30%;
+  }
+  100% {
+    top: 10%;
+    right: -4px;
+    left: auto;
+    height: 30%;
+    width: 4px;
+  }
+}
+
+@keyframes moveRight {
+  0%, 100% {
+    right: -4px;
+    top: 15%;
+  }
+  50% {
+    right: -4px;
+    top: 55%;
+  }
+}
+
+@keyframes moveLeft {
+  0%, 100% {
+    left: -4px;
+    top: 55%;
+  }
+  50% {
+    left: -4px;
+    top: 15%;
+  }
+}
+
 /* Floating circles animations */
 @keyframes floatFromLeft {
   0% {
