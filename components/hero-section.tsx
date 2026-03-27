@@ -116,7 +116,7 @@ export function HeroSection() {
                 playsInline
                 preload="auto"
                 className="w-full h-auto"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/S%C3%ADmbolo_Vira_Cadeado_em_V%C3%ADdeo-c1mUeSC5u7DKeN9IKHUXLkxAnKBqQd.mp4"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome-MWUT6zAqMQ4iuL8z3W9PhUMbuFoOgg.mp4"
               />
             </div>
           </div>
