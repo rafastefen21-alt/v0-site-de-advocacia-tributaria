@@ -1,6 +1,5 @@
 "use client"
 
-// Hero section with video background
 import { useEffect, useRef } from "react"
 import { ArrowRight, Shield, TrendingUp, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -10,105 +9,94 @@ export function HeroSection() {
 
   useEffect(() => {
     const video = videoRef.current
-    if (video) {
-      video.muted = true
-      video.setAttribute('playsinline', 'true')
-      video.setAttribute('webkit-playsinline', 'true')
-      
-      const playVideo = async () => {
-        try {
-          await video.load()
-          await video.play()
-        } catch {
-          // Autoplay blocked by browser
-        }
-      }
-      
-      playVideo()
-    }
+    if (!video) return
+    video.muted = true
+    video.load()
+    video.play().catch(() => {})
   }, [])
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+
       {/* Video Background */}
-      <div className="absolute inset-0 z-0">
-        <video
-          ref={videoRef}
-          autoPlay
-          muted
-          loop
-          playsInline
-          preload="auto"
-          className="absolute inset-0 w-full h-full object-cover"
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%281%29-tYJbRYm5MnB52KRmW5PmWPW4Ct9UzW.mp4"
-        />
-      </div>
+      <video
+        ref={videoRef}
+        autoPlay
+        muted
+        loop
+        playsInline
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%281%29-tYJbRYm5MnB52KRmW5PmWPW4Ct9UzW.mp4"
+      />
 
-      <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 z-10">
-        <div className="max-w-[55%] lg:max-w-[50%]">
-          {/* Left Side - Content */}
-          <div className="text-left">
-            {/* Main Title */}
-            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary leading-tight mb-6 text-balance">
-              Menos tributo, mais resultado.{" "}
-              <span className="text-primary">Assessoria tributária que cresce com o seu negócio.</span>
-            </h1>
+      {/* Content */}
+      <div className="relative w-full px-6 sm:px-10 lg:px-16 py-12 z-10">
+        <div className="w-full max-w-[50vw]">
 
-            {/* Subtitle */}
-            <p className="text-base sm:text-lg text-muted-foreground max-w-xl mb-8 leading-relaxed text-pretty">
-              Somos um escritório completo de assessoria tributária. Transformamos impostos pagos 
-              indevidamente em caixa para sua empresa com segurança jurídica e tecnologia de ponta.
-            </p>
+          {/* Main Title */}
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-[2.75rem] font-bold text-secondary leading-snug mb-5">
+            Menos tributo, mais resultado.{" "}
+            <span className="text-primary">
+              Assessoria tributária que cresce com o seu negócio.
+            </span>
+          </h1>
 
-            {/* CTA Buttons */}
-            <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
-              <Button 
-                size="lg" 
-                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-5 text-base group"
-              >
-                Solicite seu Diagnóstico Gratuito
-                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-              </Button>
-              <Button 
-                size="lg" 
-                variant="outline" 
-                className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-6 py-5 text-base"
-              >
-                Conheça Nossos Serviços
-              </Button>
+          {/* Subtitle */}
+          <p className="text-sm sm:text-base text-muted-foreground max-w-lg mb-8 leading-relaxed">
+            Somos um escritório completo de assessoria tributária. Transformamos impostos pagos
+            indevidamente em caixa para sua empresa com segurança jurídica e tecnologia de ponta.
+          </p>
+
+          {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-5 text-sm group"
+            >
+              Solicite seu Diagnóstico Gratuito
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+            </Button>
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-6 py-5 text-sm"
+            >
+              Conheça Nossos Serviços
+            </Button>
+          </div>
+
+          {/* Trust Indicators */}
+          <div className="flex flex-wrap gap-3">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Shield className="h-4 w-4 text-primary" />
+              </div>
+              <div>
+                <p className="font-semibold text-secondary text-xs">Segurança Jurídica</p>
+                <p className="text-[10px] text-muted-foreground">100% Compliance</p>
+              </div>
             </div>
-
-            {/* Trust Indicators */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Shield className="h-5 w-5 text-primary" />
-                </div>
-                <div className="text-left">
-                  <p className="font-semibold text-secondary text-sm">Segurança Jurídica</p>
-                  <p className="text-xs text-muted-foreground">100% Compliance</p>
-                </div>
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <TrendingUp className="h-4 w-4 text-primary" />
               </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <TrendingUp className="h-5 w-5 text-primary" />
-                </div>
-                <div className="text-left">
-                  <p className="font-semibold text-secondary text-sm">+ R$ 500 Milhões</p>
-                  <p className="text-xs text-muted-foreground">Recuperados</p>
-                </div>
+              <div>
+                <p className="font-semibold text-secondary text-xs">+ R$ 500 Milhões</p>
+                <p className="text-[10px] text-muted-foreground">Recuperados</p>
               </div>
-              <div className="flex items-center gap-3 p-3 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
-                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Zap className="h-5 w-5 text-primary" />
-                </div>
-                <div className="text-left">
-                  <p className="font-semibold text-secondary text-sm">Tecnologia</p>
-                  <p className="text-xs text-muted-foreground">Auditoria Digital</p>
-                </div>
+            </div>
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Zap className="h-4 w-4 text-primary" />
+              </div>
+              <div>
+                <p className="font-semibold text-secondary text-xs">Tecnologia</p>
+                <p className="text-[10px] text-muted-foreground">Auditoria Digital</p>
               </div>
             </div>
           </div>
+
         </div>
       </div>
     </section>
