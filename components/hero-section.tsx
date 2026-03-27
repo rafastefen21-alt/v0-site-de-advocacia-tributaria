@@ -30,20 +30,19 @@ export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
       {/* Background Image */}
-      <div className="absolute inset-0 -z-10">
-        <div 
-          className="absolute inset-0 bg-cover bg-left bg-no-repeat"
-          style={{
-            backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RXCTnfBX4fOqfrMrcQa3DGZSWjkxze.png')`,
-          }}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RXCTnfBX4fOqfrMrcQa3DGZSWjkxze.png"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover object-left"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/50 to-background/95" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background" />
       </div>
 
-      <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 z-[2]">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
+      <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 z-10">
+        <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 items-center">
           {/* Left Side - Content */}
-          <div className="text-left">
+          <div className="text-left max-w-2xl">
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary leading-tight mb-6 text-balance">
               Menos tributo, mais resultado.{" "}
@@ -107,8 +106,8 @@ export function HeroSection() {
           </div>
 
           {/* Right Side - Animation Video */}
-          <div className="hidden lg:flex items-center justify-center">
-            <div className="relative w-[280px] xl:w-[320px]">
+          <div className="hidden lg:flex items-center justify-end">
+            <div className="relative w-[220px] xl:w-[260px] 2xl:w-[300px]">
               <video
                 ref={videoRef}
                 autoPlay
