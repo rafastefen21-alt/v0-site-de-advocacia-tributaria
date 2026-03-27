@@ -29,15 +29,15 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Background Image (frame from video) */}
+      {/* Background Image */}
       <div className="absolute inset-0 -z-10">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          className="absolute inset-0 bg-cover bg-left bg-no-repeat"
           style={{
-            backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_4d7yc34d7yc34d7y-mEJPdxLlZcDspehRpHVuETGYTy4dD9.png')`,
+            backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RXCTnfBX4fOqfrMrcQa3DGZSWjkxze.png')`,
           }}
         />
-        <div className="absolute inset-0 bg-background/90" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background/70 via-background/50 to-background/95" />
       </div>
 
       <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 z-[2]">
@@ -107,8 +107,8 @@ export function HeroSection() {
           </div>
 
           {/* Right Side - Animation Video */}
-          <div className="flex items-center justify-center lg:justify-end">
-            <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl">
+          <div className="hidden lg:flex items-center justify-center">
+            <div className="relative w-[280px] xl:w-[320px]">
               <video
                 ref={videoRef}
                 autoPlay
