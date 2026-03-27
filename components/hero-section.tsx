@@ -9,27 +9,14 @@ export function HeroSection() {
 
   useEffect(() => {
     const video = videoRef.current
-    if (video) {
-      video.muted = true
-      video.setAttribute('playsinline', 'true')
-      video.setAttribute('webkit-playsinline', 'true')
-      
-      const playVideo = async () => {
-        try {
-          await video.load()
-          await video.play()
-        } catch {
-          // Autoplay blocked by browser
-        }
-      }
-      
-      playVideo()
-    }
+    if (!video) return
+    video.muted = true
+    video.load()
+    video.play().catch(() => {})
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-secondary">
-      {/* Video Background */}
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
       <video
         ref={videoRef}
         autoPlay
@@ -37,72 +24,68 @@ export function HeroSection() {
         loop
         playsInline
         preload="auto"
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        style={{ minWidth: '100%', minHeight: '100%' }}
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%ADdeo_de_Tour_de_Escrit%C3%B3rio_Jur%C3%ADdico-Z3rSFivMnjL15hRI7URdh2kqXkhU3n.mp4"
+        className="absolute inset-0 w-full h-full object-cover z-0"
+        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%281%29-tYJbRYm5MnB52KRmW5PmWPW4Ct9UzW.mp4"
       />
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-white/80 z-[1]" />
 
-      <div className="relative w-full max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6 py-16 z-[2]">
-        <div className="text-center max-w-5xl mx-auto">
-          {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-secondary leading-tight mb-6 text-balance">
-            Menos tributo, mais resultado.{" "}
-            <span className="text-primary">Assessoria tributária que cresce com o seu negócio.</span>
+      <div className="relative w-full px-6 sm:px-10 lg:px-16 py-16 z-10">
+        <div className="w-full max-w-[70vw]">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary leading-tight mb-5">
+            <span className="block whitespace-nowrap">Menos tributo, mais resultado.</span>
+            <span className="text-primary block">
+              <span className="block">Assessoria tributária que</span>
+              <span className="block">cresce com o seu negócio.</span>
+            </span>
           </h1>
 
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed text-pretty">
-            Somos um escritório completo de assessoria tributária. Transformamos impostos pagos 
+          <p className="text-sm sm:text-base text-muted-foreground max-w-xl mb-8 leading-relaxed">
+            Somos um escritório completo de assessoria tributária. Transformamos impostos pagos
             indevidamente em caixa para sua empresa com segurança jurídica e tecnologia de ponta.
           </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg group"
+          <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
+            <Button
+              size="lg"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-5 text-sm group"
             >
               Solicite seu Diagnóstico Gratuito
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
             </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-8 py-6 text-lg"
+            <Button
+              size="lg"
+              variant="outline"
+              className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-6 py-5 text-sm"
             >
               Conheça Nossos Serviços
             </Button>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Shield className="h-6 w-6 text-primary" />
+          <div className="flex flex-wrap gap-3">
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Shield className="h-4 w-4 text-primary" />
               </div>
-              <div className="text-left">
-                <p className="font-semibold text-secondary">Segurança Jurídica</p>
-                <p className="text-sm text-muted-foreground">100% Compliance</p>
-              </div>
-            </div>
-            <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                <TrendingUp className="h-6 w-6 text-primary" />
-              </div>
-              <div className="text-left">
-                <p className="font-semibold text-secondary">+ R$ 500 Milhões</p>
-                <p className="text-sm text-muted-foreground">Recuperados</p>
+              <div>
+                <p className="font-semibold text-secondary text-xs">Segurança Jurídica</p>
+                <p className="text-[10px] text-muted-foreground">100% Compliance</p>
               </div>
             </div>
-            <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Zap className="h-6 w-6 text-primary" />
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <TrendingUp className="h-4 w-4 text-primary" />
               </div>
-              <div className="text-left">
-                <p className="font-semibold text-secondary">Tecnologia</p>
-                <p className="text-sm text-muted-foreground">Auditoria Digital</p>
+              <div>
+                <p className="font-semibold text-secondary text-xs">+ R$ 500 Milhões</p>
+                <p className="text-[10px] text-muted-foreground">Recuperados</p>
+              </div>
+            </div>
+            <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
+              <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                <Zap className="h-4 w-4 text-primary" />
+              </div>
+              <div>
+                <p className="font-semibold text-secondary text-xs">Tecnologia</p>
+                <p className="text-[10px] text-muted-foreground">Auditoria Digital</p>
               </div>
             </div>
           </div>
