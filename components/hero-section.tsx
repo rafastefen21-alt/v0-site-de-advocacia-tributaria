@@ -33,7 +33,8 @@ export function HeroSection() {
           <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary leading-tight mb-5">
             <span className="block whitespace-nowrap">Menos tributo, mais resultado.</span>
             <span className="text-primary block">
-              Assessoria tributária que cresce com o seu negócio.
+              <span className="block">Assessoria tributária que</span>
+              <span className="block">cresce com o seu negócio.</span>
             </span>
           </h1>
 
