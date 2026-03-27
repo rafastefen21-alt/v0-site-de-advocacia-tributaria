@@ -28,82 +28,97 @@ export function HeroSection() {
   }, [])
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 bg-secondary">
-      {/* Video Background */}
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute top-0 left-0 w-full h-full object-cover z-0"
-        style={{ minWidth: '100%', minHeight: '100%' }}
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/V%C3%ADdeo_de_Tour_de_Escrit%C3%B3rio_Jur%C3%ADdico-Z3rSFivMnjL15hRI7URdh2kqXkhU3n.mp4"
-      />
-      {/* Overlay for better text readability */}
-      <div className="absolute inset-0 bg-white/80 z-[1]" />
+    <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
+      {/* Background Image (frame from video) */}
+      <div className="absolute inset-0 -z-10">
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+          style={{
+            backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_4d7yc34d7yc34d7y-mEJPdxLlZcDspehRpHVuETGYTy4dD9.png')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-background/90" />
+      </div>
 
-      <div className="relative w-full max-w-[1400px] mx-auto px-2 sm:px-4 lg:px-6 py-16 z-[2]">
-        <div className="text-center max-w-5xl mx-auto">
-          {/* Main Title */}
-          <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-secondary leading-tight mb-6 text-balance">
-            Menos tributo, mais resultado.{" "}
-            <span className="text-primary">Assessoria tributária que cresce com o seu negócio.</span>
-          </h1>
+      <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 z-[2]">
+        <div className="grid lg:grid-cols-2 gap-12 items-center">
+          {/* Left Side - Content */}
+          <div className="text-left">
+            {/* Main Title */}
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary leading-tight mb-6 text-balance">
+              Menos tributo, mais resultado.{" "}
+              <span className="text-primary">Assessoria tributária que cresce com o seu negócio.</span>
+            </h1>
 
-          {/* Subtitle */}
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto mb-10 leading-relaxed text-pretty">
-            Somos um escritório completo de assessoria tributária. Transformamos impostos pagos 
-            indevidamente em caixa para sua empresa com segurança jurídica e tecnologia de ponta.
-          </p>
+            {/* Subtitle */}
+            <p className="text-base sm:text-lg text-muted-foreground max-w-xl mb-8 leading-relaxed text-pretty">
+              Somos um escritório completo de assessoria tributária. Transformamos impostos pagos 
+              indevidamente em caixa para sua empresa com segurança jurídica e tecnologia de ponta.
+            </p>
 
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-16">
-            <Button 
-              size="lg" 
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-lg group"
-            >
-              Solicite seu Diagnóstico Gratuito
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Button 
-              size="lg" 
-              variant="outline" 
-              className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-8 py-6 text-lg"
-            >
-              Conheça Nossos Serviços
-            </Button>
+            {/* CTA Buttons */}
+            <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
+              <Button 
+                size="lg" 
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-5 text-base group"
+              >
+                Solicite seu Diagnóstico Gratuito
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
+              </Button>
+              <Button 
+                size="lg" 
+                variant="outline" 
+                className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-6 py-5 text-base"
+              >
+                Conheça Nossos Serviços
+              </Button>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Shield className="h-5 w-5 text-primary" />
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold text-secondary text-sm">Segurança Jurídica</p>
+                  <p className="text-xs text-muted-foreground">100% Compliance</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <TrendingUp className="h-5 w-5 text-primary" />
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold text-secondary text-sm">+ R$ 500 Milhões</p>
+                  <p className="text-xs text-muted-foreground">Recuperados</p>
+                </div>
+              </div>
+              <div className="flex items-center gap-3 p-3 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
+                <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
+                  <Zap className="h-5 w-5 text-primary" />
+                </div>
+                <div className="text-left">
+                  <p className="font-semibold text-secondary text-sm">Tecnologia</p>
+                  <p className="text-xs text-muted-foreground">Auditoria Digital</p>
+                </div>
+              </div>
+            </div>
           </div>
 
-          {/* Trust Indicators */}
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 max-w-3xl mx-auto">
-            <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Shield className="h-6 w-6 text-primary" />
-              </div>
-              <div className="text-left">
-                <p className="font-semibold text-secondary">Segurança Jurídica</p>
-                <p className="text-sm text-muted-foreground">100% Compliance</p>
-              </div>
-            </div>
-            <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                <TrendingUp className="h-6 w-6 text-primary" />
-              </div>
-              <div className="text-left">
-                <p className="font-semibold text-secondary">+ R$ 500 Milhões</p>
-                <p className="text-sm text-muted-foreground">Recuperados</p>
-              </div>
-            </div>
-            <div className="flex items-center justify-center gap-3 p-4 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
-              <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center">
-                <Zap className="h-6 w-6 text-primary" />
-              </div>
-              <div className="text-left">
-                <p className="font-semibold text-secondary">Tecnologia</p>
-                <p className="text-sm text-muted-foreground">Auditoria Digital</p>
-              </div>
+          {/* Right Side - Animation Video */}
+          <div className="flex items-center justify-center lg:justify-end">
+            <div className="relative w-full max-w-md lg:max-w-lg xl:max-w-xl">
+              <video
+                ref={videoRef}
+                autoPlay
+                muted
+                loop
+                playsInline
+                preload="auto"
+                className="w-full h-auto"
+                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/S%C3%ADmbolo_Vira_Cadeado_em_V%C3%ADdeo-c1mUeSC5u7DKeN9IKHUXLkxAnKBqQd.mp4"
+              />
             </div>
           </div>
         </div>
