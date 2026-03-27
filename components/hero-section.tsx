@@ -42,12 +42,10 @@ export function HeroSection() {
           className="absolute inset-0 w-full h-full object-cover"
           src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%281%29-tYJbRYm5MnB52KRmW5PmWPW4Ct9UzW.mp4"
         />
-        {/* Overlay for text readability */}
-        <div className="absolute inset-0 bg-background/70" />
       </div>
 
       <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 z-10">
-        <div className="max-w-3xl">
+        <div className="max-w-[55%] lg:max-w-[50%]">
           {/* Left Side - Content */}
           <div className="text-left">
             {/* Main Title */}
