@@ -1,5 +1,6 @@
 "use client"
 
+// Hero section with video background
 import { useEffect, useRef } from "react"
 import { ArrowRight, Shield, TrendingUp, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -29,20 +30,26 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      {/* Background Image */}
+      {/* Video Background */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-RXCTnfBX4fOqfrMrcQa3DGZSWjkxze.png"
-          alt=""
-          className="absolute inset-0 w-full h-full object-cover object-left"
+        <video
+          ref={videoRef}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 w-full h-full object-cover"
+          src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%281%29-tYJbRYm5MnB52KRmW5PmWPW4Ct9UzW.mp4"
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background/80 via-background/60 to-background" />
+        {/* Overlay for text readability */}
+        <div className="absolute inset-0 bg-background/70" />
       </div>
 
       <div className="relative w-full max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 z-10">
-        <div className="grid lg:grid-cols-[1fr_auto] gap-8 lg:gap-16 items-center">
+        <div className="max-w-3xl">
           {/* Left Side - Content */}
-          <div className="text-left max-w-2xl">
+          <div className="text-left">
             {/* Main Title */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary leading-tight mb-6 text-balance">
               Menos tributo, mais resultado.{" "}
@@ -102,22 +109,6 @@ export function HeroSection() {
                   <p className="text-xs text-muted-foreground">Auditoria Digital</p>
                 </div>
               </div>
-            </div>
-          </div>
-
-          {/* Right Side - Animation Video */}
-          <div className="hidden lg:flex items-center justify-end">
-            <div className="relative w-[220px] xl:w-[260px] 2xl:w-[300px]">
-              <video
-                ref={videoRef}
-                autoPlay
-                muted
-                loop
-                playsInline
-                preload="auto"
-                className="w-full h-auto"
-                src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome-MWUT6zAqMQ4iuL8z3W9PhUMbuFoOgg.mp4"
-              />
             </div>
           </div>
         </div>
