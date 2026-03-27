@@ -17,8 +17,6 @@ export function HeroSection() {
 
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-
-      {/* Video Background */}
       <video
         ref={videoRef}
         autoPlay
@@ -30,25 +28,20 @@ export function HeroSection() {
         src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%281%29-tYJbRYm5MnB52KRmW5PmWPW4Ct9UzW.mp4"
       />
 
-      {/* Content */}
       <div className="relative w-full px-6 sm:px-10 lg:px-16 py-16 z-10">
         <div className="w-full max-w-[70vw]">
-
-          {/* Main Title */}
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary leading-tight mb-5">
+          <h1 className="text-2xl sm:text-3xl lg:text-4xl xl:text-5xl font-bold text-secondary leading-tight mb-5">
             <span className="block whitespace-nowrap">Menos tributo, mais resultado.</span>
             <span className="text-primary block">
               Assessoria tributária que cresce com o seu negócio.
             </span>
           </h1>
 
-          {/* Subtitle */}
           <p className="text-sm sm:text-base text-muted-foreground max-w-xl mb-8 leading-relaxed">
             Somos um escritório completo de assessoria tributária. Transformamos impostos pagos
             indevidamente em caixa para sua empresa com segurança jurídica e tecnologia de ponta.
           </p>
 
-          {/* CTA Buttons */}
           <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
             <Button
               size="lg"
@@ -66,7 +59,6 @@ export function HeroSection() {
             </Button>
           </div>
 
-          {/* Trust Indicators */}
           <div className="flex flex-wrap gap-3">
             <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
@@ -96,7 +88,6 @@ export function HeroSection() {
               </div>
             </div>
           </div>
-
         </div>
       </div>
     </section>
