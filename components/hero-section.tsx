@@ -31,7 +31,10 @@ export function HeroSection() {
       <div className="relative w-full px-6 sm:px-10 lg:px-16 py-16 z-10">
         <div className="w-full text-center sm:text-left max-w-full sm:max-w-[70vw]">
           <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary leading-tight mb-5">
-            <span className="block">Menos tributo, mais resultado.</span>
+            <span className="block">
+              <span className="sm:hidden">Menos tributo,<br />mais resultado.</span>
+              <span className="hidden sm:inline">Menos tributo, mais resultado.</span>
+            </span>
             <span className="text-primary block">
               <span className="block">Assessoria tributária que</span>
               <span className="block">cresce com o seu negócio.</span>
