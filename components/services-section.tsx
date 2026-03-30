@@ -131,7 +131,11 @@ export function ServicesSection() {
                     className="flex items-center gap-2 text-sm font-medium text-secondary-foreground/90 hover:text-white transition-colors justify-center"
                     onClick={(e) => {
                       e.stopPropagation()
-                      // Handle CTA click
+                      if (!isExpanded) {
+                        document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })
+                      } else {
+                        setExpandedService(null)
+                      }
                     }}
                   >
                     {isExpanded ? (
