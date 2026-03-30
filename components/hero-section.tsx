@@ -29,38 +29,38 @@ export function HeroSection() {
       />
 
       <div className="relative w-full px-6 sm:px-10 lg:px-16 py-16 z-10">
-        <div className="w-full max-w-[70vw]">
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary leading-tight mb-5">
-            <span className="block whitespace-nowrap">Menos tributo, mais resultado.</span>
+        <div className="w-full text-center sm:text-left max-w-full sm:max-w-[70vw]">
+          <h1 className="text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold text-secondary leading-tight mb-5">
+            <span className="block">Menos tributo, mais resultado.</span>
             <span className="text-primary block">
               <span className="block">Assessoria tributária que</span>
               <span className="block">cresce com o seu negócio.</span>
             </span>
           </h1>
 
-          <p className="text-sm sm:text-base text-muted-foreground max-w-xl mb-8 leading-relaxed">
+          <p className="text-sm sm:text-base text-muted-foreground max-w-xl mb-8 leading-relaxed mx-auto sm:mx-0">
             Somos um escritório completo de assessoria tributária. Transformamos impostos pagos
             indevidamente em caixa para sua empresa com segurança jurídica e tecnologia de ponta.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-start gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-10">
             <Button
               size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 py-5 text-sm group"
+              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-4 py-4 text-xs sm:text-sm group w-full sm:w-auto"
             >
               Solicite seu Diagnóstico Gratuito
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1" />
+              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 flex-shrink-0" />
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-6 py-5 text-sm"
+              className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-4 py-4 text-xs sm:text-sm w-full sm:w-auto"
             >
               Conheça Nossos Serviços
             </Button>
           </div>
 
-          <div className="flex flex-wrap gap-3">
+          <div className="flex flex-wrap justify-center sm:justify-start gap-3">
             <div className="flex items-center gap-2 px-3 py-2 rounded-xl bg-card/80 backdrop-blur-sm border border-border">
               <div className="w-8 h-8 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <Shield className="h-4 w-4 text-primary" />
