@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Inter, JetBrains_Mono, Cormorant_Garamond } from 'next/font/google'
+import { Inter, JetBrains_Mono, Montserrat } from 'next/font/google'
 import { Analytics } from '@vercel/analytics/next'
 import './globals.css'
 
@@ -13,10 +13,10 @@ const jetbrainsMono = JetBrains_Mono({
   variable: '--font-jetbrains',
 })
 
-const cormorantGaramond = Cormorant_Garamond({
+const montserrat = Montserrat({
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
-  variable: '--font-cormorant',
+  variable: '--font-montserrat',
 })
 
 export const metadata: Metadata = {
@@ -49,7 +49,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="pt-BR">
-      <body className={`${inter.variable} ${jetbrainsMono.variable} ${cormorantGaramond.variable} font-sans antialiased`}>
+      <body className={`${inter.variable} ${jetbrainsMono.variable} ${montserrat.variable} font-sans antialiased`}>
         {children}
         <Analytics />
       </body>
