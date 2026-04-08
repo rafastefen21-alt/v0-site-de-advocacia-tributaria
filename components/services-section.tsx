@@ -61,7 +61,7 @@ export function ServicesSection() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-10">
-          <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-3 text-balance">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-secondary mb-3 text-balance">
             Nossos Serviços
           </h2>
           <p className="text-base text-muted-foreground text-pretty">
