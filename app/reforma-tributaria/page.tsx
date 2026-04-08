@@ -135,10 +135,12 @@ export default function ReformaTributariaPage() {
           <p className="text-base sm:text-lg text-muted-foreground font-light leading-[1.8] max-w-3xl mx-auto mb-8">
             A Emenda Constitucional 132 foi promulgada, a Lei Complementar 214/2025 foi sancionada e a regulamentação do PLP 108/2024 está aprovada. O novo sistema tributário brasileiro é real - e o período de transição já começou.
           </p>
-          <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-base group">
-            Quero entender o impacto para minha empresa
-            <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-          </Button>
+          <Link href="/#contato" className="w-full sm:w-auto inline-block">
+            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 sm:px-8 py-6 text-sm sm:text-base group w-full sm:w-auto">
+              <span className="whitespace-normal sm:whitespace-nowrap">Quero entender o impacto para minha empresa</span>
+              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 flex-shrink-0" />
+            </Button>
+          </Link>
         </div>
       </section>
 
@@ -293,10 +295,12 @@ export default function ReformaTributariaPage() {
                 </div>
               ))}
             </div>
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-base group">
-              Agende uma conversa com nossos especialistas
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
+            <Link href="/#contato" className="w-full sm:w-auto inline-block">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 sm:px-8 py-6 text-sm sm:text-base group w-full sm:w-auto">
+                <span className="whitespace-normal sm:whitespace-nowrap">Agende uma conversa com nossos especialistas</span>
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 flex-shrink-0" />
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
@@ -335,13 +339,15 @@ export default function ReformaTributariaPage() {
           <p className="text-lg text-muted-foreground mb-8">
             Fale com nossos especialistas e receba um diagnóstico personalizado do impacto da reforma para o seu negócio.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-base group">
-              Solicitar Diagnóstico Gratuito
-              <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1" />
-            </Button>
-            <Link href="/">
-              <Button size="lg" variant="outline" className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-8 py-6 text-base w-full sm:w-auto">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center w-full max-w-md sm:max-w-none mx-auto">
+            <Link href="/#contato" className="w-full sm:w-auto">
+              <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-6 sm:px-8 py-6 text-sm sm:text-base group w-full">
+                Solicitar Diagnóstico Gratuito
+                <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 flex-shrink-0" />
+              </Button>
+            </Link>
+            <Link href="/" className="w-full sm:w-auto">
+              <Button size="lg" variant="outline" className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-6 sm:px-8 py-6 text-sm sm:text-base w-full">
                 Voltar ao site principal
               </Button>
             </Link>
