@@ -2,6 +2,7 @@
 
 import { ArrowRight, Shield, TrendingUp, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export function HeroSection() {
   return (
@@ -32,20 +33,24 @@ export function HeroSection() {
           </p>
 
           <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 mb-10 w-full max-w-xs sm:max-w-none mx-auto sm:mx-0">
-            <Button
-              size="lg"
-              className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-4 py-4 text-xs sm:text-sm group w-full sm:w-auto"
-            >
-              Solicite seu Diagnóstico Gratuito
-              <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 flex-shrink-0" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-4 py-4 text-xs sm:text-sm w-full sm:w-auto"
-            >
-              Conheça Nossos Serviços
-            </Button>
+            <Link href="#contato" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-4 py-4 text-xs sm:text-sm group w-full"
+              >
+                Solicite seu Diagnóstico Gratuito
+                <ArrowRight className="ml-2 h-4 w-4 transition-transform group-hover:translate-x-1 flex-shrink-0" />
+              </Button>
+            </Link>
+            <Link href="#servicos" className="w-full sm:w-auto">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-secondary/20 text-secondary hover:bg-secondary/5 font-semibold px-4 py-4 text-xs sm:text-sm w-full"
+              >
+                Conheça Nossos Serviços
+              </Button>
+            </Link>
           </div>
 
           <div className="flex flex-wrap justify-center sm:justify-start gap-3">

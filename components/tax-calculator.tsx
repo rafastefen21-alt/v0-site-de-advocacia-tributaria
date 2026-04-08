@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react"
 import { Calculator, Building2, Clock, DollarSign, TrendingUp, Info } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 import { Slider } from "@/components/ui/slider"
 import {
   Select,
@@ -200,13 +201,15 @@ export function TaxCalculator() {
                         </p>
                       </div>
 
-                      <Button 
-                        size="lg" 
-                        className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6"
-                        disabled={!segment || monthlyTax[0] === 0}
-                      >
-                        Solicitar Análise Detalhada
-                      </Button>
+                      <Link href="#contato" className="w-full block">
+                        <Button 
+                          size="lg" 
+                          className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold py-6"
+                          disabled={!segment || monthlyTax[0] === 0}
+                        >
+                          Solicitar Análise Detalhada
+                        </Button>
+                      </Link>
                     </div>
                   </div>
                 </div>

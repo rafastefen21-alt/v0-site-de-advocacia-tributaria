@@ -12,6 +12,7 @@ import {
   CheckCircle2
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 const problems = [
   {
@@ -259,12 +260,14 @@ export function ServiceCompass() {
                   ))}
                 </div>
                 
-                <Button 
-                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-                >
-                  Solicitar Consultoria
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
+                <Link href="#contato" className="w-full">
+                  <Button 
+                    className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                  >
+                    Solicitar Consultoria
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Button>
+                </Link>
               </div>
             )}
           </div>
@@ -349,13 +352,15 @@ export function ServiceCompass() {
                 ))}
               </div>
               
-              <Button 
-                size="lg" 
-                className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
-              >
-                Solicitar Consultoria
-                <ArrowRight className="ml-2 h-5 w-5" />
-              </Button>
+              <Link href="#contato" className="w-full">
+                <Button 
+                  size="lg" 
+                  className="w-full bg-primary hover:bg-primary/90 text-primary-foreground font-semibold"
+                >
+                  Solicitar Consultoria
+                  <ArrowRight className="ml-2 h-5 w-5" />
+                </Button>
+              </Link>
             </div>
           )}
         </div>
