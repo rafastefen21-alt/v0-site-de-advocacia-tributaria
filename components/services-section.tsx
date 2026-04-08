@@ -152,8 +152,8 @@ export function ServicesSection() {
           })}
         </div>
 
-        {/* Segunda linha centralizada */}
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-5 max-w-[calc(75%+10px)] mx-auto">
+        {/* Segunda linha - centralizada apenas em desktop */}
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-5 md:max-w-[calc(75%+10px)] md:mx-auto">
           {services.slice(4).map((service) => {
             const isExpanded = expandedService === service.id
 

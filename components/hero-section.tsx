@@ -15,14 +15,14 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-transparent z-[1]" />
 
       <div className="relative w-full px-6 sm:px-10 lg:px-16 py-16 z-10">
-        <div className="w-full text-center sm:text-left max-w-full sm:max-w-[70vw]">
+        <div className="w-full text-center sm:text-left max-w-full sm:max-w-[70vw] mx-auto sm:mx-0">
           <h1 className="text-secondary leading-tight mb-5">
-            <span className="block text-base sm:text-xl lg:text-2xl xl:text-3xl font-normal italic tracking-tight sm:tracking-normal max-w-[80%] sm:max-w-none">
+            <span className="block text-base sm:text-xl lg:text-2xl xl:text-3xl font-normal italic tracking-tight sm:tracking-normal mx-auto sm:mx-0 max-w-[80%] sm:max-w-none">
               Menos tributo, mais resultado.
             </span>
-            <span className="text-primary block text-lg sm:text-4xl lg:text-5xl xl:text-6xl font-bold">
-              <span className="block">Assessoria tribut&#225;ria que</span>
-              <span className="block">cresce com o seu neg&#243;cio.</span>
+            <span className="text-primary block text-2xl sm:text-4xl lg:text-5xl xl:text-6xl font-bold">
+              <span className="block">Assessoria tributária que</span>
+              <span className="block">cresce com o seu negócio.</span>
             </span>
           </h1>
 
@@ -31,7 +31,7 @@ export function HeroSection() {
             indevidamente em caixa para sua empresa com segurança jurídica e tecnologia de ponta.
           </p>
 
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-10">
+          <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-start gap-4 mb-10 w-full max-w-xs sm:max-w-none mx-auto sm:mx-0">
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-4 py-4 text-xs sm:text-sm group w-full sm:w-auto"
