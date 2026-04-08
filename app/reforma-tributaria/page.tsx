@@ -121,14 +121,11 @@ export default function ReformaTributariaPage() {
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 -z-10" />
         <div className="max-w-4xl mx-auto text-center">
-          <span className="inline-block px-4 py-2 bg-primary/10 text-primary font-semibold rounded-full text-sm mb-6">
-            Reforma Tributária 2025
-          </span>
-          <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-secondary leading-tight mb-6">
+          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-secondary leading-tight mb-6">
             A maior reforma tributária desde 1988 já está em vigor.{" "}
-            <span className="text-primary">A sua empresa está preparada?</span>
+            <span className="text-primary font-bold">A sua empresa está preparada?</span>
           </h1>
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto mb-8">
+          <p className="text-base sm:text-lg text-muted-foreground font-light leading-[1.8] max-w-3xl mx-auto mb-8">
             A Emenda Constitucional 132 foi promulgada, a Lei Complementar 214/2025 foi sancionada e a regulamentação do PLP 108/2024 está aprovada. O novo sistema tributário brasileiro é real - e o período de transição já começou.
           </p>
           <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground font-semibold px-8 py-6 text-base group">
