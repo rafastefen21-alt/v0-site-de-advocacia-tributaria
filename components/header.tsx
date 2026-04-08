@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button"
 
 const navLinks = [
   { href: "#servicos", label: "Serviços" },
+  { href: "/reforma-tributaria", label: "Reforma Tributária" },
   { href: "#calculadora", label: "Calculadora" },
   { href: "#processo", label: "Processo" },
   { href: "#equipe", label: "Equipe" },

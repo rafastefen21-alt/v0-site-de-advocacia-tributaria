@@ -1,38 +1,24 @@
 "use client"
 
-import { useEffect, useRef } from "react"
 import { ArrowRight, Shield, TrendingUp, Zap } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
 export function HeroSection() {
-  const videoRef = useRef<HTMLVideoElement>(null)
-
-  useEffect(() => {
-    const video = videoRef.current
-    if (!video) return
-    video.muted = true
-    video.load()
-    video.play().catch(() => {})
-  }, [])
-
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      <video
-        ref={videoRef}
-        autoPlay
-        muted
-        loop
-        playsInline
-        preload="auto"
-        className="absolute inset-0 w-full h-full object-cover z-0"
-        src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Design%20sem%20nome%20%282%29-C0ZvH7fuvIDew1HobsQHJyQZXE7H0e.mp4"
+      <div 
+        className="absolute inset-0 w-full h-full bg-cover bg-center bg-no-repeat z-0"
+        style={{
+          backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_8z1xp08z1xp08z1x.png-oroALOPMX8RHFSdAgChdZsBoT1OseN.jpeg')`,
+        }}
       />
+      <div className="absolute inset-0 bg-gradient-to-r from-background/90 via-background/70 to-transparent z-[1]" />
 
       <div className="relative w-full px-6 sm:px-10 lg:px-16 py-16 z-10">
         <div className="w-full text-center sm:text-left max-w-full sm:max-w-[70vw]">
           <h1 className="text-secondary leading-tight mb-5">
-            <span className="block text-[2.1rem] sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight sm:tracking-normal">
-              {"Menos tributo, mais resultado."}
+            <span className="block text-[1.75rem] sm:text-3xl lg:text-4xl xl:text-5xl font-normal tracking-tight sm:tracking-normal max-w-[90%] sm:max-w-none">
+              Menos tributo, mais resultado.
             </span>
             <span className="text-primary block text-lg sm:text-4xl lg:text-5xl xl:text-6xl font-bold">
               <span className="block">Assessoria tribut&#225;ria que</span>

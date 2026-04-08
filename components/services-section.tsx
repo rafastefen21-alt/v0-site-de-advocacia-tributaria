@@ -51,13 +51,6 @@ const services = [
     description: "Auditoria completa dos procedimentos de apuração de tributos, corrigindo erros e otimizando processos.",
     hasAccent: false,
   },
-  {
-    id: 8,
-    title: "Método Revisão 360",
-    description: "Metodologia exclusiva que combina tecnologia e expertise jurídica para uma análise completa de todas as oportunidades tributárias.",
-    hasAccent: true,
-    accentPosition: "right",
-  },
 ]
 
 export function ServicesSection() {
