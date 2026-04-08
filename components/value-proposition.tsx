@@ -17,15 +17,23 @@ function NetworkBackground() {
     let animationFrameId: number
     let time = 0
 
-    // Set canvas size
+    // Set canvas size with devicePixelRatio for sharp rendering
     const resizeCanvas = () => {
-      const rect = canvas.parentElement?.getBoundingClientRect()
-      if (rect) {
-        canvas.width = rect.width
-        canvas.height = rect.height
-      }
+      const parent = canvas.parentElement
+      if (!parent) return
+      
+      const rect = parent.getBoundingClientRect()
+      const dpr = window.devicePixelRatio || 1
+      
+      canvas.width = rect.width * dpr
+      canvas.height = rect.height * dpr
+      canvas.style.width = `${rect.width}px`
+      canvas.style.height = `${rect.height}px`
+      ctx.scale(dpr, dpr)
     }
-    resizeCanvas()
+    
+    // Initial resize after a small delay to ensure parent has dimensions
+    setTimeout(resizeCanvas, 100)
     window.addEventListener('resize', resizeCanvas)
 
     // Generate network nodes
@@ -62,7 +70,14 @@ function NetworkBackground() {
     const animate = () => {
       if (!ctx || !canvas) return
       
+      // Reset transform before clearing
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
       ctx.clearRect(0, 0, canvas.width, canvas.height)
+      
+      // Reapply scale for drawing
+      const dpr = window.devicePixelRatio || 1
+      ctx.scale(dpr, dpr)
+      
       time += 0.003 // Very slow animation
 
       // Update node positions with subtle drift
@@ -73,15 +88,19 @@ function NetworkBackground() {
         node.y = node.baseY + driftY
       })
 
+      // Get display dimensions (not canvas buffer dimensions)
+      const displayWidth = canvas.clientWidth || canvas.width
+      const displayHeight = canvas.clientHeight || canvas.height
+
       // Draw connections with subtle opacity variation
       connections.forEach((conn) => {
         const fromNode = nodes[conn.from]
         const toNode = nodes[conn.to]
         
-        const x1 = (fromNode.x / 100) * canvas.width
-        const y1 = (fromNode.y / 100) * canvas.height
-        const x2 = (toNode.x / 100) * canvas.width
-        const y2 = (toNode.y / 100) * canvas.height
+        const x1 = (fromNode.x / 100) * displayWidth
+        const y1 = (fromNode.y / 100) * displayHeight
+        const x2 = (toNode.x / 100) * displayWidth
+        const y2 = (toNode.y / 100) * displayHeight
 
         // Subtle opacity pulsation on lines
         const lineOpacity = 0.12 + Math.sin(time * 0.5 + conn.distance * 0.1) * 0.03
@@ -96,8 +115,8 @@ function NetworkBackground() {
 
       // Draw nodes with pulsation
       nodes.forEach((node) => {
-        const x = (node.x / 100) * canvas.width
-        const y = (node.y / 100) * canvas.height
+        const x = (node.x / 100) * displayWidth
+        const y = (node.y / 100) * displayHeight
 
         // Subtle pulsation effect
         const pulse = 0.15 + Math.sin(time * 0.7 + node.phase) * 0.05
