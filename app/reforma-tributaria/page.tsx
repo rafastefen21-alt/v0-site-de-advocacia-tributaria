@@ -120,13 +120,14 @@ export default function ReformaTributariaPage() {
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div 
-          className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10"
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat"
           style={{
             backgroundImage: `url('/images/hero-reforma.png')`,
+            zIndex: 0,
           }}
         />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70 -z-10" />
-        <div className="max-w-4xl mx-auto text-center">
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70" style={{ zIndex: 1 }} />
+        <div className="max-w-4xl mx-auto text-center relative" style={{ zIndex: 2 }}>
           <h1 className="text-secondary leading-tight mb-6">
             <span className="text-primary font-bold text-4xl sm:text-5xl lg:text-[3.25rem] tracking-wide block mb-2">A sua empresa está preparada?</span>
             <span className="text-2xl sm:text-3xl lg:text-[2rem] max-w-2xl mx-auto block">A maior reforma tributária desde 1988 já está em vigor.</span>
