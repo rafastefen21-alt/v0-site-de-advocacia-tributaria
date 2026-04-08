@@ -36,7 +36,7 @@ export function TeamSection() {
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-6">
             <span className="text-sm font-mono text-primary">NOSSA EQUIPE</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-secondary mb-4 text-balance">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-secondary mb-4 text-balance">
             Especialistas em Direito Tributário
           </h2>
           <p className="text-lg text-muted-foreground text-pretty">

@@ -73,7 +73,7 @@ export function TaxCalculator() {
             <Calculator className="h-4 w-4 text-primary" />
             <span className="text-sm font-mono text-primary">CALCULADORA TRIBUTÁRIA</span>
           </div>
-          <h2 className="text-3xl sm:text-4xl font-bold text-secondary mb-4 text-balance">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-secondary mb-4 text-balance">
             Descubra Quanto Sua Empresa Pode Recuperar
           </h2>
           <p className="text-lg text-muted-foreground text-pretty">

@@ -124,7 +124,7 @@ export function ServiceCompass() {
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8">
-          <h2 className="text-2xl sm:text-3xl font-bold text-secondary mb-3 text-balance">
+          <h2 className="font-serif text-3xl sm:text-4xl lg:text-[44px] font-bold text-secondary mb-3 text-balance">
             Qual seu desafio?
           </h2>
           <p className="text-base text-muted-foreground text-pretty">
@@ -136,7 +136,7 @@ export function ServiceCompass() {
         <div className="hidden lg:grid lg:grid-cols-2 gap-8 items-center">
           {/* Left Side - Compass */}
           <div className="flex justify-center">
-            <div className="relative w-[380px] h-[380px]">
+            <div className="relative w-[450px] h-[450px]">
               {/* Outer Circle */}
               <div className="absolute inset-0 rounded-full border-2 border-dashed border-secondary/10" />
               
@@ -176,7 +176,7 @@ export function ServiceCompass() {
               {problems.map((item) => {
                 const Icon = item.icon
                 const isSelected = selectedProblem === item.id
-                const position = getPosition(item.angle, 145)
+                const position = getPosition(item.angle, 175)
 
                 return (
                   <button
@@ -191,7 +191,7 @@ export function ServiceCompass() {
                   >
                     <div
                       className={`
-                        relative px-3 py-2 rounded-lg border transition-all duration-300 min-w-[110px]
+                        relative px-4 py-3 rounded-lg border transition-all duration-300 min-w-[130px]
                         ${isSelected 
                           ? "bg-primary text-primary-foreground border-primary shadow-lg shadow-primary/20 scale-105" 
                           : "bg-card border-border hover:border-primary/50 hover:shadow-md"
@@ -201,14 +201,14 @@ export function ServiceCompass() {
                       <div className="flex items-center gap-2">
                         <div 
                           className={`
-                            w-6 h-6 rounded flex items-center justify-center transition-colors flex-shrink-0
+                            w-7 h-7 rounded flex items-center justify-center transition-colors flex-shrink-0
                             ${isSelected ? "bg-white/20" : "bg-primary/10"}
                           `}
                         >
-                          <Icon className={`h-3 w-3 ${isSelected ? "text-white" : "text-primary"}`} />
+                          <Icon className={`h-4 w-4 ${isSelected ? "text-white" : "text-primary"}`} />
                         </div>
                         <span 
-                          className={`text-[10px] font-semibold text-left leading-tight ${isSelected ? "text-white" : "text-secondary"}`}
+                          className={`text-xs font-semibold text-left leading-tight ${isSelected ? "text-white" : "text-secondary"}`}
                         >
                           {item.problem}
                         </span>
