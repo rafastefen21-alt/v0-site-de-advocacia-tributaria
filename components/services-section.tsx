@@ -145,14 +145,14 @@ export function ServicesSection() {
         </div>
 
         {/* Segunda linha centralizada */}
-        <div className="flex justify-center gap-5 mt-5">
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-5 mt-5 max-w-[calc(75%+10px)] mx-auto">
           {services.slice(4).map((service) => {
             const isExpanded = expandedService === service.id
 
             return (
               <div
                 key={service.id}
-                className="relative group w-full max-w-[calc(25%-15px)]"
+                className="relative group"
               >
                 {/* Animated Orbiting Accent Lines */}
                 <div 

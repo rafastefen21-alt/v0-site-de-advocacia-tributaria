@@ -1,6 +1,152 @@
 "use client"
 
 import { Sun, Users, Shield, ArrowRight } from "lucide-react"
+import { useEffect, useRef } from "react"
+
+// Animated network background component
+function NetworkBackground() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    let animationFrameId: number
+    let time = 0
+
+    // Set canvas size with devicePixelRatio for sharp rendering
+    const resizeCanvas = () => {
+      const parent = canvas.parentElement
+      if (!parent) return
+      
+      const rect = parent.getBoundingClientRect()
+      const dpr = window.devicePixelRatio || 1
+      
+      canvas.width = rect.width * dpr
+      canvas.height = rect.height * dpr
+      canvas.style.width = `${rect.width}px`
+      canvas.style.height = `${rect.height}px`
+      ctx.scale(dpr, dpr)
+    }
+    
+    // Initial resize after a small delay to ensure parent has dimensions
+    setTimeout(resizeCanvas, 100)
+    window.addEventListener('resize', resizeCanvas)
+
+    // Generate network nodes
+    const nodeCount = 35
+    const nodes: { x: number; y: number; baseX: number; baseY: number; phase: number }[] = []
+    
+    for (let i = 0; i < nodeCount; i++) {
+      const x = Math.random() * 100
+      const y = Math.random() * 100
+      nodes.push({
+        x,
+        y,
+        baseX: x,
+        baseY: y,
+        phase: Math.random() * Math.PI * 2,
+      })
+    }
+
+    // Find connections between nearby nodes
+    const connections: { from: number; to: number; distance: number }[] = []
+    const maxDistance = 30
+
+    for (let i = 0; i < nodes.length; i++) {
+      for (let j = i + 1; j < nodes.length; j++) {
+        const dx = nodes[i].baseX - nodes[j].baseX
+        const dy = nodes[i].baseY - nodes[j].baseY
+        const distance = Math.sqrt(dx * dx + dy * dy)
+        if (distance < maxDistance) {
+          connections.push({ from: i, to: j, distance })
+        }
+      }
+    }
+
+    const animate = () => {
+      if (!ctx || !canvas) return
+      
+      // Reset transform before clearing
+      ctx.setTransform(1, 0, 0, 1, 0, 0)
+      ctx.clearRect(0, 0, canvas.width, canvas.height)
+      
+      // Reapply scale for drawing
+      const dpr = window.devicePixelRatio || 1
+      ctx.scale(dpr, dpr)
+      
+      time += 0.003 // Very slow animation
+
+      // Update node positions with subtle drift
+      nodes.forEach((node) => {
+        const driftX = Math.sin(time + node.phase) * 0.3
+        const driftY = Math.cos(time * 0.8 + node.phase) * 0.3
+        node.x = node.baseX + driftX
+        node.y = node.baseY + driftY
+      })
+
+      // Get display dimensions (not canvas buffer dimensions)
+      const displayWidth = canvas.clientWidth || canvas.width
+      const displayHeight = canvas.clientHeight || canvas.height
+
+      // Draw connections with subtle opacity variation
+      connections.forEach((conn) => {
+        const fromNode = nodes[conn.from]
+        const toNode = nodes[conn.to]
+        
+        const x1 = (fromNode.x / 100) * displayWidth
+        const y1 = (fromNode.y / 100) * displayHeight
+        const x2 = (toNode.x / 100) * displayWidth
+        const y2 = (toNode.y / 100) * displayHeight
+
+        // Subtle opacity pulsation on lines
+        const lineOpacity = 0.12 + Math.sin(time * 0.5 + conn.distance * 0.1) * 0.03
+
+        ctx.beginPath()
+        ctx.moveTo(x1, y1)
+        ctx.lineTo(x2, y2)
+        ctx.strokeStyle = `rgba(199, 134, 91, ${lineOpacity})`
+        ctx.lineWidth = 0.8
+        ctx.stroke()
+      })
+
+      // Draw nodes with pulsation
+      nodes.forEach((node) => {
+        const x = (node.x / 100) * displayWidth
+        const y = (node.y / 100) * displayHeight
+
+        // Subtle pulsation effect
+        const pulse = 0.15 + Math.sin(time * 0.7 + node.phase) * 0.05
+        const radius = 2 + Math.sin(time * 0.5 + node.phase) * 0.3
+
+        ctx.beginPath()
+        ctx.arc(x, y, radius, 0, Math.PI * 2)
+        ctx.fillStyle = `rgba(199, 134, 91, ${pulse})`
+        ctx.fill()
+      })
+
+      animationFrameId = requestAnimationFrame(animate)
+    }
+
+    animate()
+
+    return () => {
+      window.removeEventListener('resize', resizeCanvas)
+      cancelAnimationFrame(animationFrameId)
+    }
+  }, [])
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full pointer-events-none"
+      style={{ opacity: 0.7 }}
+    />
+  )
+}
 
 const valueCards = [
   {
@@ -41,8 +187,11 @@ function renderDescription(description: string, highlights: string[] | null) {
 
 export function ValueProposition() {
   return (
-    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#eef3f9]">
-      <div className="max-w-[1160px] mx-auto">
+    <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#eef3f9] relative overflow-hidden">
+      {/* Animated network background */}
+      <NetworkBackground />
+      
+      <div className="max-w-[1160px] mx-auto relative z-10">
         {/* Header */}
         <div className="mb-14 flex flex-col gap-3">
           <span className="text-[11px] font-medium tracking-[0.2em] uppercase text-primary flex items-center gap-3">
