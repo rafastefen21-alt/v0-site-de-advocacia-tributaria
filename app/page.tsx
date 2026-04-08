@@ -7,6 +7,7 @@ import { AuditPipeline } from "@/components/audit-pipeline"
 import { TeamSection } from "@/components/team-section"
 import { ContactSection } from "@/components/contact-section"
 import { Footer } from "@/components/footer"
+import { ValueProposition } from "@/components/value-proposition"
 
 export default function Home() {
   return (
@@ -14,6 +15,7 @@ export default function Home() {
       <Header />
       <HeroSection />
       <ServiceCompass />
+      <ValueProposition />
       <ServicesSection />
       <TaxCalculator />
       <AuditPipeline />
