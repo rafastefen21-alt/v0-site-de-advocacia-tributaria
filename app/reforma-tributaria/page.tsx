@@ -93,7 +93,7 @@ const faqs = [
 
 export default function ReformaTributariaPage() {
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-background font-serif">
       {/* Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-card/80 backdrop-blur-lg border-b border-border">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -121,9 +121,9 @@ export default function ReformaTributariaPage() {
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
         <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 -z-10" />
         <div className="max-w-4xl mx-auto text-center">
-          <h1 className="font-serif text-4xl sm:text-5xl lg:text-6xl text-secondary leading-tight mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-[2.75rem] text-secondary leading-tight mb-6">
             A maior reforma tributária desde 1988 já está em vigor.{" "}
-            <span className="text-primary font-bold">A sua empresa está preparada?</span>
+            <span className="text-primary font-bold whitespace-nowrap">A sua empresa está preparada?</span>
           </h1>
           <p className="text-base sm:text-lg text-muted-foreground font-light leading-[1.8] max-w-3xl mx-auto mb-8">
             A Emenda Constitucional 132 foi promulgada, a Lei Complementar 214/2025 foi sancionada e a regulamentação do PLP 108/2024 está aprovada. O novo sistema tributário brasileiro é real - e o período de transição já começou.
