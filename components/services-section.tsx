@@ -71,13 +71,88 @@ export function ServicesSection() {
 
         {/* Services Grid */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-5">
-          {services.map((service) => {
+          {services.slice(0, 4).map((service) => {
             const isExpanded = expandedService === service.id
 
             return (
               <div
                 key={service.id}
                 className="relative group"
+              >
+                {/* Animated Orbiting Accent Lines */}
+                <div 
+                  className="absolute w-1 h-[35%] bg-gradient-to-b from-primary via-primary to-transparent rounded-full z-10"
+                  style={{
+                    right: '-4px',
+                    top: '15%',
+                    animation: 'moveRight 3s ease-in-out infinite',
+                    animationDelay: `${service.id * 0.3}s`
+                  }}
+                />
+                <div 
+                  className="absolute w-1 h-[35%] bg-gradient-to-t from-primary via-primary to-transparent rounded-full z-10"
+                  style={{
+                    left: '-4px',
+                    top: '50%',
+                    animation: 'moveLeft 3s ease-in-out infinite',
+                    animationDelay: `${service.id * 0.3}s`
+                  }}
+                />
+
+                <div
+                  className={`
+                    relative h-full min-h-[180px] p-6 rounded-2xl bg-secondary text-secondary-foreground 
+                    transition-all duration-300 cursor-pointer overflow-hidden flex flex-col justify-between
+                    ${isExpanded ? "shadow-2xl scale-[1.02]" : "hover:shadow-lg"}
+                  `}
+                  onClick={() => setExpandedService(isExpanded ? null : service.id)}
+                >
+                  {/* Service Title */}
+                  <h3 className="text-lg font-bold mb-6 leading-tight text-center">
+                    {service.title}
+                  </h3>
+
+                  {/* Expanded Content */}
+                  {isExpanded && (
+                    <p className="text-sm text-secondary-foreground/80 mb-4 animate-in fade-in duration-300 text-center">
+                      {service.description}
+                    </p>
+                  )}
+
+                  {/* CTA Button */}
+                  <button 
+                    className="flex items-center gap-2 text-sm font-medium text-secondary-foreground/90 hover:text-white transition-colors justify-center"
+                    onClick={(e) => {
+                      e.stopPropagation()
+                      if (!isExpanded) {
+                        document.getElementById("contato")?.scrollIntoView({ behavior: "smooth" })
+                      } else {
+                        setExpandedService(null)
+                      }
+                    }}
+                  >
+                    {isExpanded ? (
+                      <X className="h-4 w-4" />
+                    ) : (
+                      <Plus className="h-4 w-4" />
+                    )}
+                    <span>Quero Saber Mais</span>
+                  </button>
+                </div>
+              </div>
+            )
+          })}
+        </div>
+
+        {/* Segunda linha centralizada */}
+        <div className="flex justify-center gap-5 mt-5">
+          {services.slice(4).map((service) => {
+            const isExpanded = expandedService === service.id
+
+            return (
+              <div
+                key={service.id}
+                className="relative group w-full max-w-[calc(25%-15px)]"
               >
                 {/* Animated Orbiting Accent Lines */}
                 <div 

@@ -119,7 +119,13 @@ export default function ReformaTributariaPage() {
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-secondary/5 via-transparent to-primary/5 -z-10" />
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10"
+          style={{
+            backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_6xxv9o6xxv9o6xxv.png-70EPnXJB6cGgDRDA206iW13BbA0nJo.jpeg')`,
+          }}
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70 -z-10" />
         <div className="max-w-4xl mx-auto text-center">
           <h1 className="text-secondary leading-tight mb-6">
             <span className="text-primary font-bold text-4xl sm:text-5xl lg:text-[3.25rem] tracking-wide block mb-2">A sua empresa está preparada?</span>
