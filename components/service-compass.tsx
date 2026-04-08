@@ -121,6 +121,14 @@ export function ServiceCompass() {
 
   return (
     <section id="servicos" className="py-16 relative overflow-hidden bg-background">
+      {/* Bottom shadow that projects over the next section */}
+      <div 
+        className="absolute bottom-0 left-0 right-0 h-8 pointer-events-none"
+        style={{ 
+          boxShadow: '0 15px 25px -5px rgba(0, 0, 0, 0.08), 0 8px 15px -6px rgba(0, 0, 0, 0.06)',
+          zIndex: 10 
+        }}
+      />
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-8">
