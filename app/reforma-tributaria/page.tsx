@@ -122,7 +122,7 @@ export default function ReformaTributariaPage() {
         <div 
           className="absolute inset-0 bg-cover bg-center bg-no-repeat -z-10"
           style={{
-            backgroundImage: `url('https://hebbkx1anhila5yf.public.blob.vercel-storage.com/Gemini_Generated_Image_6xxv9o6xxv9o6xxv.png-70EPnXJB6cGgDRDA206iW13BbA0nJo.jpeg')`,
+            backgroundImage: `url('/images/hero-reforma.png')`,
           }}
         />
         <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/70 -z-10" />
