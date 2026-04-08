@@ -17,8 +17,8 @@ export function HeroSection() {
       <div className="relative w-full px-6 sm:px-10 lg:px-16 py-16 z-10">
         <div className="w-full text-center sm:text-left max-w-full sm:max-w-[70vw]">
           <h1 className="text-secondary leading-tight mb-5">
-            <span className="block text-[2.1rem] sm:text-4xl lg:text-5xl xl:text-6xl font-bold tracking-tight sm:tracking-normal">
-              {"Menos tributo, mais resultado."}
+            <span className="block text-[1.75rem] sm:text-3xl lg:text-4xl xl:text-5xl font-normal tracking-tight sm:tracking-normal max-w-[90%] sm:max-w-none">
+              Menos tributo, mais resultado.
             </span>
             <span className="text-primary block text-lg sm:text-4xl lg:text-5xl xl:text-6xl font-bold">
               <span className="block">Assessoria tribut&#225;ria que</span>
