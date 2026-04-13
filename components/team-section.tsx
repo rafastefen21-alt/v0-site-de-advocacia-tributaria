@@ -7,7 +7,7 @@ const team = [
   {
     name: "Tatiane Skoberg",
     role: "Advogada Contratual e Tributarista",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-17%20at%2013.17.18%20%282%29-weWuSJTrBlkhHewglyuoQih0BQxJn4.jpeg",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-09%20at%2020.56.48-3cyKabwqOBgqep9HMgMVJ0E9s9ilRi.jpeg",
     description: "Especialista em Gestão Tributária pela USP/Esalq. Pós-graduanda em Reforma Tributária e Prática Fiscal (FBC). Bacharel em Ciências Contábeis e Administração de Empresas. Mais de 15 anos de atuação na área fiscal/tributária.",
   },
   {
