@@ -4,6 +4,7 @@ import Image from "next/image"
 import { ArrowRight, ArrowLeft, Calendar, FileText, Building2, Users, Landmark, ChevronDown, ChevronUp } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Footer } from "@/components/footer"
+import { TaxReformQuiz } from "@/components/tax-reform-quiz"
 
 export const metadata: Metadata = {
   title: "Reforma Tributária | SKP Assessoria Tributária",
@@ -141,6 +142,25 @@ export default function ReformaTributariaPage() {
               <ArrowRight className="ml-2 h-5 w-5 transition-transform group-hover:translate-x-1 flex-shrink-0" />
             </Button>
           </Link>
+        </div>
+      </section>
+
+      {/* Quiz Section */}
+      <section className="py-20 px-4 sm:px-6 lg:px-8 bg-[#f4f6f9]">
+        <div className="max-w-4xl mx-auto">
+          <div className="text-center mb-12">
+            <div className="inline-flex items-center gap-2 text-primary text-xs font-medium tracking-widest uppercase mb-5">
+              <span className="w-5 h-px bg-primary inline-block animate-pulse" />
+              Diagnóstico Gratuito
+            </div>
+            <h2 className="font-serif text-3xl sm:text-4xl lg:text-[2.75rem] font-semibold text-secondary leading-tight mb-4">
+              Descubra o impacto da reforma no <em className="text-primary not-italic">seu</em> negócio
+            </h2>
+            <p className="text-base text-muted-foreground font-light leading-[1.8] max-w-xl mx-auto">
+              11 perguntas. 3 minutos. Um relatório personalizado sobre como a Reforma Tributária afeta especificamente a sua empresa.
+            </p>
+          </div>
+          <TaxReformQuiz />
         </div>
       </section>
 
