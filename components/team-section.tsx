@@ -7,8 +7,8 @@ const team = [
   {
     name: "Tatiane Skoberg",
     role: "Advogada Contratual e Tributarista",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-09%20at%2020.56.48-3cyKabwqOBgqep9HMgMVJ0E9s9ilRi.jpeg",
-    description: "Especialista em Gestão Tributária pela USP/Esalq. Pós-graduanda em Reforma Tributária e Prática Fiscal (FBC). Bacharel em Ciências Contábeis e Administração de Empresas. Mais de 15 anos de atuação na área fiscal/tributária.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-09%20at%2020.56.48-HAQH4P4gIBVTuQrwXLEKU4V0vZjpni.jpeg",
+    description: "Formada desde 2008 na Universidade Cidade de SP, Pós-graduada em Processo Civil pela PUC/SP e MBA em Gestão Tributária pela USP/SP. Atuante em Direito Empresarial e Tributário. Membro do Mulheres do Tributário. Reconhecida pela Revista Análise como a Advogada mais admirada.",
   },
   {
     name: "Bruno Pires",
@@ -19,8 +19,8 @@ const team = [
   {
     name: "Aline Fontoura",
     role: "Contadora Especialista em Gestão Tributária",
-    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-03-17%20at%2013.17.18-lRV4OXPIVzIJwzPMyTmK32hBF1Alac.jpeg",
-    description: "Formada desde 2008 na Universidade Cidade de SP, Pós-graduada em Processo Civil pela PUC/SP e MBA em Gestão Tributária pela USP/SP. Atuante em Direito Empresarial e Tributário. Membro do Mulheres do Tributário. Reconhecida pela Revista Análise como a Advogada mais admirada.",
+    image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7daoxALhQ3ojchUEmfKTeF1zjKBNkq.png",
+    description: "Especialista em Gestão Tributária pela USP/Esalq. Pós-graduanda em Reforma Tributária e Prática Fiscal (FBC). Bacharel em Ciências Contábeis e Administração de Empresas. Mais de 15 anos de atuação na área fiscal/tributária.",
   },
 ]
 
