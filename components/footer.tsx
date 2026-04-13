@@ -49,9 +49,19 @@ export function Footer() {
               height={50}
               className="h-10 w-auto brightness-0 invert mb-6"
             />
-            <p className="text-secondary-foreground/70 text-sm leading-relaxed mb-6">
+            <p className="text-secondary-foreground/70 text-sm leading-relaxed mb-4">
               Assessoria tributária com inteligência jurídica e tecnologia na recuperação de créditos.
             </p>
+            <div className="text-secondary-foreground/70 text-sm leading-relaxed mb-2 space-y-1">
+              <p>(48) 98813-1245 — SC</p>
+              <p>(11) 91989-2000 — SP</p>
+            </div>
+            <div className="text-secondary-foreground/70 text-sm leading-relaxed mb-6 space-y-1">
+              <p>Rua Santo Antonio, 686 - CJ 201</p>
+              <p>Barreiros — São José / SC</p>
+              <p className="mt-2">Av. Regente Feijó, 944 - CJ 1304 A</p>
+              <p>Anália Franco — São Paulo / SP</p>
+            </div>
             <div className="flex items-center gap-3">
               {social.map((item) => {
                 const Icon = item.icon
