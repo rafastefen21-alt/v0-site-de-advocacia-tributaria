@@ -9,18 +9,21 @@ const team = [
     role: "Advogada Contratual e Tributarista",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-09%20at%2020.56.48-HAQH4P4gIBVTuQrwXLEKU4V0vZjpni.jpeg",
     description: "Formada desde 2008 na Universidade Cidade de SP, Pós-graduada em Processo Civil pela PUC/SP e MBA em Gestão Tributária pela USP/SP. Atuante em Direito Empresarial e Tributário. Membro do Mulheres do Tributário. Reconhecida pela Revista Análise como a Advogada mais admirada.",
+    imageStyle: {},
   },
   {
     name: "Bruno Pires",
     role: "Advogado de Propriedade Intelectual e Tributário",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/WhatsApp%20Image%202026-04-09%20at%2020.56.47-0YMwfaV10yEDFXoKcbeA21m2hlBIyh.jpeg",
     description: "Formado desde 2008 na Universidade de São Paulo, Pós-graduado em Direito Tributário pelo Damásio Educacional. Atuante em Direito Empresarial Tributário, Marcário e Juiz Arbitral Federal - CAMECON.",
+    imageStyle: { transform: "scale(0.7) translateY(10%)" },
   },
   {
     name: "Aline Fontoura",
     role: "Contadora Especialista em Gestão Tributária",
     image: "https://hebbkx1anhila5yf.public.blob.vercel-storage.com/image-7daoxALhQ3ojchUEmfKTeF1zjKBNkq.png",
     description: "Especialista em Gestão Tributária pela USP/Esalq. Pós-graduanda em Reforma Tributária e Prática Fiscal (FBC). Bacharel em Ciências Contábeis e Administração de Empresas. Mais de 15 anos de atuação na área fiscal/tributária.",
+    imageStyle: {},
   },
 ]
 
@@ -59,6 +62,7 @@ export function TeamSection() {
                   alt={member.name}
                   fill
                   className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+                  style={member.imageStyle}
                 />
                 {/* Gradient Overlay */}
                 <div className="absolute inset-0 bg-gradient-to-t from-secondary via-transparent to-transparent opacity-60" />
