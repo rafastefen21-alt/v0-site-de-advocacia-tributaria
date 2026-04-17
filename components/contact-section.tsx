@@ -62,7 +62,8 @@ export function ContactSection() {
                 </div>
                 <div>
                   <h3 className="font-semibold text-secondary mb-1">Telefone</h3>
-                  <p className="text-muted-foreground">(47) 9999-9999</p>
+                  <p className="text-muted-foreground">(48) 98813-1245 — SC</p>
+                  <p>(11) 91989-2000 — SP</p>
                 </div>
               </div>
               
