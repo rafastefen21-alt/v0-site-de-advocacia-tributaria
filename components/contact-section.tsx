@@ -63,7 +63,7 @@ export function ContactSection() {
                 <div>
                   <h3 className="font-semibold text-secondary mb-1">Telefone</h3>
                   <p className="text-muted-foreground">(48) 98813-1245 — SC</p>
-                  <p>(11) 91989-2000 — SP</p>
+                  <p className="text-muted-foreground">(11) 91989-2000 — SP</p>
                 </div>
               </div>
               
@@ -77,19 +77,7 @@ export function ContactSection() {
                 </div>
               </div>
               
-              <div className="flex items-start gap-4">
-                <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="h-5 w-5 text-primary" />
-                </div>
-                <div>
-                  <h3 className="font-semibold text-secondary mb-1">Endereço</h3>
-                  <p className="text-muted-foreground">
-                    Joinville - SC, Brasil
-                  </p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4">
+               <div className="flex items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Clock className="h-5 w-5 text-primary" />
                 </div>
